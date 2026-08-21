@@ -10,15 +10,14 @@ This repository supports **COSC 650: Applied LLM Systems**, an 8-week course at 
 
 Work is organized by week, with one folder per week of the course:
 
-\```
-week-00/   Setup and prerequisites (environment, API keys, Colab/GitHub workflow)
-week-01/   ...
-week-02/   ...
-...
-week-08/   ...
-\```
+Work is organized by week, with one folder per week of the course:
 
-Each `week-XX/` folder contains that week's notebook(s) and any supporting files for the assignment covered that week.
+- `week-0/` — Setup and prerequisites (environment, API keys, Colab/GitHub workflow)
+- `week-1/` – `week-8/` — One folder per remaining week, added as the course progresses
+
+Each `week-X/` folder contains that week's notebook(s) and any supporting files for the assignment covered that week.
+
+Each `week-X/` folder contains that week's notebook(s) and any supporting files for the assignment covered that week.
 
 ## Technologies
 
