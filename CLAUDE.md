@@ -7,7 +7,8 @@ prompt engineering, function calling, retrieval-augmented generation,
 fine-tuning, and evaluation.
 
 ## Structure
-- week-01/ through week-08/ : weekly assignments and notebooks
+- week-0: initial set up for the course and practice using api keys
+- week-1/ through week-8/ : weekly assignments and notebooks
 - notes/ : research notes and reading annotations
 - project/ : final project code and documentation
 - CLAUDE.md : this file
