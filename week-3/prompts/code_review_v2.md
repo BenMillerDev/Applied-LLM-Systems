@@ -1,4 +1,4 @@
-cod# Code Review Triage Prompt — v2
+# Code Review Triage Prompt — v2
 
 Same as v1, with one added rule after the few-shot examples: when a comment
 raises more than one concern, or uses language associated with a more severe
