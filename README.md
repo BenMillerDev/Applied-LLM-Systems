@@ -13,6 +13,7 @@ Work is organized by week, with one folder per week of the course:
 - `week-0/` — Setup and prerequisites (environment, API keys, Colab/GitHub workflow)
 - `week-1/` — Tokenization Analysis: multilingual tax between Vietnamese
 - `week-2/` — Inference and Sampling: tracing a forward pass and comparing temperature, top-k, and top-p on a real model's next-token distribution
+- `week-3/` — Prompts as Engineering Artifacts: versioning a code review triage prompt and testing whether an added rule improves it
 
 Each `week-X/` folder contains that week's notebook(s) and any supporting files for the assignment covered that week.
 
