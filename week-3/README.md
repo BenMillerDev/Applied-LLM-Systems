@@ -8,6 +8,7 @@ rule actually improves it, or just trades one failure for another.
 - `week3_prompt_engineering.ipynb` — full analysis notebook (run top to bottom)
 - `prompts/code_review_v1.md` — baseline prompt
 - `prompts/code_review_v2.md` — v1 + one added severity-priority rule
+- `Week_3_discussion_BJJ_Prompt` - Weekly discussion post experiment
 ## Headline results
 - v1 and v2 both score **92% exact-match** (11/12) on the test suite, but on
   different cases — v2's added rule fixes a bug buried behind naming

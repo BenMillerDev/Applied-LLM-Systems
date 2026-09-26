@@ -6,6 +6,7 @@ next-token distribution.
 
 ## Contents
 - `week2_inference_sampling.ipynb` — full analysis notebook (run top to bottom)
+- `Week_2_Sampling_Paramteres_Experiment.ipynb` - Weekly discussion post experiment
 
 ## Headline results
 - Raising temperature from 0.5 to 2.0 drops the top-token probability

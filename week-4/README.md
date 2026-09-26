@@ -8,6 +8,7 @@ resolved it.
 ## Contents
 - `week4_tool_use.ipynb` — full notebook (run top to bottom; needs `GEMINI_API_KEY`
   set as a Colab secret to run the live model cells)
+- `Week_4_Discussion_Function_tools.ipynb` - Weekly discussion post experiment
 ## Headline results
 - All three live Part 3 queries matched `classify_pr_size`'s rules exactly,
   including both tier-shift directions — a 512-line mechanical change dropped
