@@ -7,7 +7,7 @@ precision/recall@3 across 11 hand-labeled queries, then traces one retrieval
 failure down to the exact chunk that got outranked and why.
 
 ## Contents
-- `week5_RAG_pipeline2.ipynb` — full notebook (run top to bottom; auto-clones
+- `week5_RAG_pipeline.ipynb` — full notebook (run top to bottom; auto-clones
   this repo's `docs/` if not already present; needs `GEMINI_API_KEY` set as a
   Colab secret to run the live Part 3 generation cells)
 
