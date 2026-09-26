@@ -98,3 +98,21 @@ path-guessing failure occurred, the decision to fix it with a
 description change rather than a schema change, and the confirmation
 that the fix resolved the failure are my own conclusions, drawn from
 those runs.
+
+### Week 5 — RAG Pipeline with Retrieval Evaluation
+Claude (Anthropic) assisted with:
+- Modifying the notebook's Python code to build the chunking functions
+  (fixed-size and by-paragraph), the FAISS retrieval and precision/recall@3
+  evaluation functions, and a diagnostic addition that prints the actual
+  retrieved chunks (flagged relevant/wrong) for each disagreeing query
+  instead of just the aggregate scores
+- Drafting and revising this file and the README
+- Drafting the research-note issue and PR body for Week 5
+
+All precision/recall scores, retrieved-chunk traces, and generation outputs
+reported in the notebook came from running the actual embedding, FAISS
+retrieval, and evaluation code myself. The diagnosis of why small chunking underperforms
+against larger and by-paragraph chunking, the specific retrieval-failure
+trace on the analytics-dashboard query in Part 4, and the conclusions about
+the precision/recall tradeoffs across chunk sizes are my own, drawn from
+those runs.

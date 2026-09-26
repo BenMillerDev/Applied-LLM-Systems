@@ -1,0 +1,7 @@
+## Availability and Scheduling
+
+The availability screen is where an owner defines when they're open for business. It uses an inline time picker to set hours for each day of the week individually -- Monday through Sunday each get their own isOpen flag along with a startTime and endTime, so a salon can be closed on, say, Sundays and Mondays while keeping different hours the rest of the week.
+
+The same screen also holds two scheduling controls beyond simple open hours: a configurable buffer time inserted between back-to-back appointments, and a maximum number of bookings allowed per day, which caps how many appointments can be scheduled regardless of how many open slots the calculation would otherwise produce. An owner can also block off individual calendar dates entirely, for vacations or holidays, without having to change their regular weekly hours.
+
+All of this -- the weekly hours, buffer time, daily cap, and blocked dates -- lives in a single Firestore document per owner, keyed by ownerId, rather than being spread across multiple collections. The useAvailability hook handles every read and write to that document, and any change made here is picked up immediately by the time slot algorithm the next time a customer tries to book.
