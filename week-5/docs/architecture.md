@@ -1,0 +1,7 @@
+## NailSalonApp Architecture
+
+NailSalonApp is a full-stack booking platform for independent nail technicians, split into two separate codebases that serve two different audiences. The owner-facing app is a native iOS app built with React Native and Expo, written in TypeScript, and used daily to run the business. Customers never install anything -- they book through a separate React (TypeScript) web app reached from a single shared link, with no account required.
+
+The stack is intentionally small: Firebase Firestore is the database for both sides of the app, Firebase Authentication handles owner sign-in, and Firebase Hosting serves the customer-facing web app and its static assets. On the owner side, screen-level state and cross-cutting concerns like the current authenticated user are handled with React Context and a set of custom hooks rather than a dedicated state-management library like Redux.
+
+Navigation on the owner app uses Expo Router's file-based routing, with route groups separating the authentication screens (login and signup) from the authenticated owner screens (dashboard, appointments, clients, services, availability, and settings). The customer-facing booking flow lives entirely in its own codebase, booking-web, which shares almost no code with the owner app beyond the underlying booking data model.
