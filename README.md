@@ -14,6 +14,9 @@ Work is organized by week, with one folder per week of the course:
 - `week-1/` — Tokenization Analysis: multilingual tax between Vietnamese
 - `week-2/` — Inference and Sampling: tracing a forward pass and comparing temperature, top-k, and top-p on a real model's next-token distribution
 - `week-3/` — Prompts as Engineering Artifacts: versioning a code review triage prompt and testing whether an added rule improves it
+- `week-4/` — Multi-Tool Function Calling: building a Gemini function-calling loop and fixing a fixing a failed file-lookup tool
+- `week-5/` — RAG Pipeline with Retrieval Evaluation: comparing three chunking configurations on precision/recall@3 
+- `week-6/` — Advanced Retrieval: Transform and Re-rank: adding a HyDE query transformation and cross-encoder reranking step on top of Week 5's worst-performing chunking config
 
 Each `week-X/` folder contains that week's notebook(s) and any supporting files for the assignment covered that week.
 
