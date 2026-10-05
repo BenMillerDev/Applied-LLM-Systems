@@ -116,3 +116,18 @@ against larger and by-paragraph chunking, the specific retrieval-failure
 trace on the analytics-dashboard query in Part 4, and the conclusions about
 the precision/recall tradeoffs across chunk sizes are my own, drawn from
 those runs.
+
+### Week 6 — Advanced Retrieval: Transform and Re-rank
+Claude (Anthropic) assisted with:
+- Extending the Week 5 retrieval notebook with a HyDE query transformation
+  step and a cross-encoder reranking step, evaluated against the same
+  11-query set over the small (120/20) chunking config, similar to how the
+  starter notebook was adapted in prior weeks
+- Drafting and revising CLAUDE.md and the README for the week-6 folder
+- Drafting the Week 6 PR description
+- Drafting the research-note issue (#13) body and comments summarizing the
+  HyDE + reranking results and the failure-case analysis
+
+The analysis, measurements, and decisions in this assignment are my own.
+All reported precision/recall numbers and the regression trace came from my
+own runs in Colab, not from AI output pasted in unverified.
