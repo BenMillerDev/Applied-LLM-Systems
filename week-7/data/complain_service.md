@@ -1,0 +1,58 @@
+# complain_service
+
+- My gel manicure chipped the very next day.
+- I'm really unhappy with how my nails turned out.
+- The polish started peeling within a day of my pedicure.
+- My acrylics look uneven and sloppy.
+- I'm not happy with the nail art I got from Jordan.
+- My gel manicure lifted within two days.
+- The pedicure I got didn't look the way I asked for.
+- I'm disappointed with my last visit.
+- My nails were left rough and unfinished looking.
+- The dip powder set chipped almost immediately.
+- I feel like my appointment with Dana was rushed.
+- My acrylic fill looks lumpy and uneven.
+- The color I got wasn't what I asked for.
+- My nails broke within a few days of the appointment.
+- I'm upset about how my pedicure turned out.
+- The gel polish started bubbling right after application.
+- My nail art smudged before I even left the salon.
+- I waited over an hour past my appointment time.
+- The technician barely spoke to me during my service.
+- My cuticles were cut too short and it hurt.
+- The shape of my nails isn't what I asked for.
+- My gel manicure is already peeling at the edges.
+- I'm not satisfied with the quality of my last service.
+- The paraffin treatment felt rushed and incomplete.
+- My nails look uneven in length.
+- I got the wrong color applied to my nails.
+- My acrylics started lifting after just a few days.
+- The pedicure left my feet feeling rough, not smooth.
+- I'm frustrated that my appointment ran so late.
+- My nail art design was sloppy and didn't match the picture.
+- The gel removal process damaged my natural nails.
+- I'm unhappy that Mia rushed through my manicure.
+- My dip powder set looks thick and uneven.
+- The polish on my toes is already chipping.
+- I feel like my service today wasn't up to standard.
+- My nails were left with visible air bubbles in the polish.
+- The technician used the wrong shape for my acrylics.
+- I'm disappointed that my design wasn't done as requested.
+- My gel manicure smudged right after I left.
+- The pedicure didn't include the massage I was told about.
+- My nails chipped within hours of leaving the salon.
+- I feel like I was overcharged for a rushed service.
+- The acrylic fill looks bulky at the cuticle area.
+- My nail polish color doesn't match what was shown to me.
+- I'm not happy with how long my appointment took.
+- The nail art I asked for wasn't applied correctly.
+- My gel polish peeled off within a day.
+- The pedicure left my heels just as rough as before.
+- I'm upset that my appointment was cut short.
+- My nails look uneven and the polish is streaky.
+- The dip powder color doesn't match the sample I chose.
+- I'm disappointed with the overall quality of my visit.
+- My acrylics came out crooked and uneven.
+- My gel manicure chipped the very next day.
+- My nails look uneven and the polish is streaky.
+-
