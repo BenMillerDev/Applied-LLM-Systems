@@ -1,0 +1,58 @@
+# request_refund
+
+- Can I get a refund for my gel manicure?
+- I'd like my money back for yesterday's pedicure.
+- Can you refund my last acrylic fill appointment?
+- I want a partial refund for my nail art session.
+- Can I get reimbursed for my dip powder set?
+- I'd like a refund since my polish chipped the next day.
+- Can you give me my money back for that service?
+- I want a refund for my appointment with Jordan.
+- Can I get a credit or refund for my pedicure?
+- I'd like my money back since the service was rushed.
+- Can you refund part of my acrylic fill since it looks uneven?
+- I want a refund for the nail art that smudged.
+- Can I get my money back for the gel removal?
+- I'd like a refund for today's appointment.
+- Can you refund me since my nails broke within days?
+- I want my money back for the paraffin treatment.
+- Can I get a refund since the color was wrong?
+- I'd like reimbursement for my last visit.
+- Can you refund my dip powder appointment?
+- I want a partial refund since my pedicure wasn't finished properly.
+- Can I get my money back for the rushed service?
+- I'd like a refund for the acrylic set that lifted.
+- Can you give me a refund for my manicure today?
+- I want my money back since the polish peeled immediately.
+- Can I get reimbursed for the appointment with Dana?
+- I'd like a refund since the nail art didn't match the picture.
+- Can you refund me for the service I wasn't happy with?
+- I want a credit toward my next visit instead of a refund.
+- Can I get my money back for the gel manicure that chipped?
+- I'd like a partial refund for the rushed pedicure.
+- Can you refund my appointment since it was cut short?
+- I want my money back for the uneven acrylic fill.
+- Can I get a refund for the wrong color applied?
+- I'd like reimbursement for the overpriced rushed service.
+- Can you refund the dip powder set that chipped right away?
+- I want a refund since my nails look worse than before.
+- Can I get my money back for the smudged nail art?
+- I'd like a refund for the service with Mia today.
+- Can you refund part of my visit since it wasn't up to standard?
+- I want my money back for the pedicure that skipped the massage.
+- Can I get a refund since my cuticles were cut too short?
+- I'd like reimbursement for the bubbling gel polish.
+- Can you refund my appointment from this weekend?
+- I want a partial refund for the uneven nail shape.
+- Can I get my money back since the design wasn't applied correctly?
+- I'd like a refund for the acrylics that lifted within days.
+- Can you refund me for the service that ran over an hour late?
+- I want my money back for the polish that peeled off fast.
+- Can I get reimbursed for the pedicure with rough heels still?
+- I'd like a refund since I was overcharged for a rushed job.
+- Can you give me my money back for the streaky polish?
+- I want a refund for the crooked acrylics.
+- Can I get my money back for last week's appointment?
+- Can I get a refund for my gel manicure?
+- I want a refund for the crooked acrylics.
+-

@@ -1,0 +1,58 @@
+# ask_service_menu
+
+- What services do you offer?
+- Do you do nail art?
+- Can Mia do ombre nails?
+- What kinds of manicures do you offer?
+- Do you do acrylic fills?
+- Does Priya do gel extensions?
+- What's included in a deluxe pedicure?
+- Do you offer dip powder services?
+- Can Jordan do chrome nails?
+- What services does the salon provide?
+- Do you do paraffin treatments?
+- Does Dana specialize in nail art?
+- What's the difference between gel and regular polish?
+- Do you offer kids' manicures?
+- Can Alex do intricate nail designs?
+- What services come with a basic manicure?
+- Do you do gel removal?
+- Does Sam do acrylic sets?
+- What pedicure options do you have?
+- Do you offer eyebrow waxing too?
+- Can Chris do French tips?
+- What's included in your spa pedicure?
+- Do you do dip powder removal?
+- Does Taylor do nail art design?
+- What services do you offer for men?
+- Do you provide callus removal?
+- Can Mia do acrylic overlays?
+- What's the full list of services you offer?
+- Do you do polish changes only?
+- Does Priya offer nail repair?
+- What kinds of pedicures do you have?
+- Do you do gel manicures for toes?
+- Can Jordan do 3D nail art?
+- What's included in a basic pedicure?
+- Do you offer massage add-ons?
+- Does Dana do dip powder ombre?
+- What services do you provide for bridal parties?
+- Do you do cuticle care?
+- Can Alex do matte finishes?
+- What's the menu for nail services?
+- Do you offer paraffin wax for hands only?
+- Does Sam do acrylic fills and repairs?
+- What services are available for walk-ins?
+- Do you do gel extensions?
+- Can Chris do nail piercings?
+- What's included in your signature manicure?
+- Do you offer group bookings for services?
+- Does Taylor do custom nail art?
+- What services do you have for sensitive skin?
+- Do you do hand massages with manicures?
+- Can Mia do stiletto-shaped nails?
+- Do you offer nail art consultations before booking?
+- Do you offer any seasonal nail art designs?
+- What services do you offer?
+- Do you do cuticle care?
+-
