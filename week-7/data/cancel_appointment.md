@@ -1,0 +1,58 @@
+# cancel_appointment
+
+- I need to cancel my appointment tomorrow.
+- Can you cancel my pedicure for this weekend?
+- Please cancel my gel manicure at 2pm.
+- I have to cancel my acrylic fill today.
+- Can I cancel my appointment with Mia next week?
+- I won't be able to make my nail art appointment Saturday morning.
+- Need to cancel my dip powder appointment this afternoon.
+- Can you cancel my booking for next Tuesday?
+- I have to cancel my paraffin treatment with Dana.
+- Please cancel today's pedicure appointment.
+- I need to cancel my polish change this weekend.
+- Can you cancel my gel removal appointment tomorrow?
+- Something came up, I need to cancel my appointment.
+- Cancel my acrylic fill with Priya please.
+- I can't make it to my appointment this afternoon, please cancel.
+- Can you cancel my nail art session next week?
+- I need to cancel my gel manicure with Alex.
+- Please cancel my pedicure scheduled for 2pm.
+- Cancel my dip powder appointment tomorrow please.
+- I have to cancel my booking with Jordan this weekend.
+- Can you cancel my paraffin treatment today?
+- I won't be able to come in Saturday morning, cancel please.
+- Need to cancel my polish change appointment next Tuesday.
+- Can you cancel my acrylic fill this afternoon?
+- Please cancel my appointment with Sam tomorrow.
+- I have to cancel my gel manicure next week.
+- Cancel my pedicure with Chris please.
+- Can you cancel today's nail art appointment?
+- I need to cancel my dip powder set this weekend.
+- Please cancel my paraffin treatment at 2pm.
+- Cancel my gel removal appointment next Tuesday please.
+- I can't make my appointment tomorrow, can you cancel it?
+- Need to cancel my booking with Taylor this afternoon.
+- Can you cancel my acrylic fill next week?
+- Please cancel my pedicure today.
+- I have to cancel my nail art session with Mia.
+- Cancel my polish change appointment this weekend please.
+- Can you cancel my gel manicure at 2pm tomorrow?
+- I need to cancel my paraffin treatment with Priya.
+- Please cancel my dip powder appointment next Tuesday.
+- Cancel my acrylic fill this afternoon please.
+- I won't make my appointment Saturday morning, please cancel.
+- Can you cancel my pedicure with Dana next week?
+- Need to cancel my nail art appointment today.
+- Please cancel my gel removal booking tomorrow.
+- Cancel my paraffin treatment with Jordan please.
+- I have to cancel my polish change this afternoon.
+- Can you cancel my dip powder set with Alex?
+- Please cancel my acrylic fill today.
+- Cancel my pedicure appointment next Tuesday please.
+- I need to cancel my gel manicure this weekend.
+- Can you cancel my nail art with Sam tomorrow?
+- Please cancel my booking for 2pm.
+- Please cancel today's pedicure appointment.
+- Cancel my pedicure with Chris please.
+-

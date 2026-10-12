@@ -1,0 +1,58 @@
+# reschedule_appointment
+
+- Can I move my appointment to tomorrow?
+- I need to reschedule my pedicure to this weekend.
+- Can we push my gel manicure to next Tuesday?
+- I have to reschedule my acrylic fill to 2pm.
+- Can you move my appointment with Mia to next week?
+- I need to reschedule my nail art to Saturday morning.
+- Can we change my dip powder appointment to this afternoon?
+- I'd like to move my paraffin treatment to today.
+- Can you reschedule my pedicure with Priya?
+- I need to push my polish change back a few days.
+- Can we move my gel removal appointment to tomorrow?
+- I'd like to reschedule my acrylic fill with Dana.
+- Can you move my appointment to next Tuesday instead?
+- I need to change my nail art appointment to this weekend.
+- Can we reschedule my dip powder set to 2pm?
+- I'd like to push my pedicure to next week.
+- Can you move my gel manicure with Alex to today?
+- I need to reschedule my paraffin treatment to Saturday morning.
+- Can we change my appointment with Jordan to this afternoon?
+- I'd like to move my acrylic fill to tomorrow.
+- Can you reschedule my polish change to next week?
+- I need to push my nail art appointment to 2pm.
+- Can we move my pedicure with Sam to this weekend?
+- I'd like to reschedule my gel removal to today.
+- Can you change my appointment to Saturday morning?
+- I need to move my dip powder set with Chris.
+- Can we reschedule my paraffin treatment to next Tuesday?
+- I'd like to push my gel manicure back to this afternoon.
+- Can you move my acrylic fill with Taylor to tomorrow?
+- I need to reschedule my pedicure to 2pm.
+- Can we change my nail art appointment to next week?
+- I'd like to move my polish change to today.
+- Can you reschedule my appointment with Mia to this weekend?
+- I need to push my gel removal to Saturday morning.
+- Can we move my dip powder appointment to next Tuesday?
+- I'd like to reschedule my paraffin treatment with Priya.
+- Can you change my pedicure to this afternoon?
+- I need to move my acrylic fill to next week.
+- Can we reschedule my gel manicure to today?
+- I'd like to push my nail art with Dana to tomorrow.
+- Can you move my polish change to 2pm?
+- I need to reschedule my appointment with Alex to this weekend.
+- Can we change my paraffin treatment to Saturday morning?
+- I'd like to move my dip powder set to next Tuesday.
+- Can you reschedule my gel removal with Jordan?
+- I need to push my pedicure to this afternoon.
+- Can we move my nail art appointment to today?
+- I'd like to change my acrylic fill to next week.
+- Can you reschedule my gel manicure with Sam to tomorrow?
+- I need to move my paraffin treatment to 2pm.
+- Can we push my polish change to Saturday morning?
+- I'd like to reschedule my pedicure with Chris.
+- Can you move my appointment to this afternoon instead?
+- Can I move my appointment to tomorrow?
+- I need to move my dip powder set with Chris.
+-

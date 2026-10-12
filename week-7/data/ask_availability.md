@@ -1,0 +1,58 @@
+# ask_availability
+
+- Do you have any openings tomorrow?
+- Is there anything available this weekend?
+- Does Mia have any slots open next Tuesday?
+- Are there any openings for 2pm today?
+- Is Haley available this afternoon?
+- Do you have anything open Saturday morning?
+- Any availability next week for a pedicure?
+- Is there a slot open with Jordan tomorrow?
+- Do you have room for a walk-in today?
+- Is anyone free this weekend for a gel manicure?
+- Are there openings for an acrylic fill next Tuesday?
+- Does Dana have availability this afternoon?
+- Do you have any last-minute openings today?
+- Is there a spot open at 2pm tomorrow?
+- Any openings with Alex next week?
+- Do you have availability Saturday morning for nail art?
+- Is Sam free this weekend?
+- Are there any slots left for tomorrow afternoon?
+- Do you have anything open for a dip powder set?
+- Is there room in the schedule next Tuesday?
+- Does Chris have any openings this week?
+- Are you open for walk-ins this afternoon?
+- Do you have availability for a pedicure today?
+- Is there anything open with Taylor tomorrow?
+- Any slots free this weekend for nail art?
+- Do you have room for me at 2pm?
+- Is Mia booked solid next week or does she have openings?
+- Are there any openings for a paraffin treatment?
+- Do you have anything available Saturday morning?
+- Is there a spot for an acrylic fill today?
+- Any availability tomorrow for a polish change?
+- Does Haley have room this afternoon?
+- Do you have openings for gel removal next Tuesday?
+- Is there anything free this weekend?
+- Are there any last-minute slots today?
+- Do you have room for a quick manicure this afternoon?
+- Is Jordan available next week?
+- Any openings tomorrow morning?
+- Do you have a slot free for 2pm today?
+- Is there availability for a full set this weekend?
+- Does Dana have anything open tomorrow?
+- Are there openings this week for a pedicure?
+- Do you have room Saturday morning for nail art?
+- Is Alex free for an appointment today?
+- Any slots open next Tuesday afternoon?
+- Do you have availability for walk-ins right now?
+- Is there anything open with Sam this weekend?
+- Are there openings for a dip powder fill tomorrow?
+- Do you have room this afternoon for a quick fix?
+- Is Chris available next week for an appointment?
+- Any openings today for a gel manicure?
+- Do you have a spot free Saturday morning?
+- Is there availability this weekend for Taylor?
+- Do you have any openings tomorrow?
+- Any openings today for a gel manicure?
+-

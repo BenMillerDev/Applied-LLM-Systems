@@ -1,0 +1,58 @@
+# ask_pricing
+
+- How much is a gel manicure?
+- What's the price for a pedicure?
+- Do you charge extra for nail art?
+- How much does an acrylic fill cost?
+- What's the price of a dip powder set?
+- How much is a polish change?
+- Do you charge extra for gel removal?
+- What's the cost of a paraffin treatment?
+- How much does Mia charge for a gel manicure?
+- What's the price for a pedicure with Priya?
+- Is there an extra charge for nail art with Jordan?
+- How much is an acrylic fill with Dana?
+- What do you charge for a dip powder set?
+- How much does a polish change cost?
+- Do you charge more for gel removal and fill?
+- What's the price range for a paraffin treatment?
+- How much is a gel manicure with tips?
+- What's the cost of a full set of acrylics?
+- Do you have pricing for nail art designs?
+- How much extra is a design on top of a manicure?
+- What's the price for a pedicure with paraffin wax?
+- How much does a dip powder removal cost?
+- Do you charge a fee for gel removal alone?
+- What's the going rate for a polish change?
+- How much is it for a gel manicure and pedicure combo?
+- What does a full acrylic set cost?
+- Is there a discount for booking multiple services?
+- How much do you charge for nail art per nail?
+- What's the price for a paraffin treatment add-on?
+- How much is a gel manicure for kids?
+- Do prices vary by stylist?
+- What's the cost difference between gel and dip powder?
+- How much is a basic polish change versus gel?
+- What do you charge for removing old acrylics?
+- Is there an extra cost for intricate nail art?
+- How much does a pedicure with nail art cost?
+- What's the price for a deluxe pedicure package?
+- Do you charge extra for same-day appointments?
+- How much is a manicure without polish?
+- What's the cost for a gel manicure refill?
+- Is there a cancellation fee if I cancel late?
+- How much do walk-ins cost compared to booked appointments?
+- What's the price for a kids' manicure?
+- Do you offer package pricing for mani-pedi combos?
+- How much extra is chrome or glitter polish?
+- What's the cost of a French tip manicure?
+- Do you charge a deposit for acrylic appointments?
+- How much is a paraffin treatment add-on to a pedicure?
+- What's your price list look like?
+- How much is it to get my nails done for a wedding?
+- Do you have student discounts on services?
+- What's the price difference between a fill and a full set?
+- How much does a gel manicure cost on weekends?
+- How much is a gel manicure?
+- What's the cost of a French tip manicure?
+-

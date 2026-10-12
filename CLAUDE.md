@@ -131,3 +131,14 @@ Claude (Anthropic) assisted with:
 The analysis, measurements, and decisions in this assignment are my own.
 All reported precision/recall numbers and the regression trace came from my
 own runs in Colab, not from AI output pasted in unverified.
+
+### Week 7 — The Adaptation Decision and a Production Dataset
+
+Claude (Anthropic) assisted with:
+- Extending the Week 7 starter notebook with my NailSalonApp documentation and drafting code for retrieval and analysis
+- Generating the dataset, including extra examples to find a regression
+- Drafting and revising CLAUDE.md and the README for the week-7 folder
+- Drafting the research-note issue body follow-up comments (#15)
+- Drafting the PR description (What/Why/How/Testing) for the Week 7 pull request, linked to issue #15
+
+The dataset-cleaning code, the retrieval and evaluation pipeline, the actual zero-shot/dynamic-few-shot accuracy numbers, and the decision to ship zero-shot as the default are my own. Claude helped me recompute and later catch an inconsistency in my own reported numbers, and helped me write up and frame the findings, but every number reported above came from my own notebook runs, not from AI output pasted in unverified.

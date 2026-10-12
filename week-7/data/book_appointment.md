@@ -1,0 +1,58 @@
+# book_appointment
+
+- Can I book a gel manicure for tomorrow?
+- I'd like to schedule a pedicure this weekend.
+- Do you have room for an acrylic fill today?
+- Can I get an appointment for nail art next Tuesday?
+- I want to book a dip powder set for Saturday morning.
+- Could you fit me in for a polish change this afternoon?
+- Looking to schedule a paraffin treatment at 2pm.
+- Can I set up a gel manicure with Mia next week?
+- I'd love to book a pedicure with Priya this weekend.
+- Trying to get an acrylic fill in before Saturday.
+- Hey, can I book a mani for this afternoon?
+- I need to schedule a pedicure before my trip next week.
+- Is it possible to book a nail art appointment with Jordan?
+- Can you set me up with a gel removal and fill tomorrow?
+- I'd like to make an appointment for a dip powder set.
+- Book me in for a polish change at 2pm please.
+- Can I reserve a spot for an acrylic fill this weekend?
+- I want to schedule a paraffin treatment with Dana.
+- Any chance I can book a pedicure for today?
+- I'm trying to book a gel manicure with Alex next Tuesday.
+- Could I get a nail art session scheduled for Saturday morning?
+- I need an appointment for dip powder removal and fill.
+- Can we book me in for a pedicure this afternoon?
+- I'd like to schedule a gel manicure for next week.
+- Hoping to book an acrylic fill with Sam tomorrow.
+- Can I get booked for a polish change today?
+- I want an appointment with Chris for a paraffin treatment.
+- Book a pedicure for me this weekend if there's room.
+- Can I schedule a nail art appointment for 2pm?
+- I'd like to come in for a gel manicure next Tuesday.
+- Please book me a dip powder set for Saturday morning.
+- Is there an opening for an acrylic fill this afternoon?
+- I want to set up a pedicure appointment with Taylor.
+- Can you book me in tomorrow for a polish change?
+- I'd like a gel removal and fill appointment this week.
+- Trying to schedule a paraffin treatment for today.
+- Book me for a nail art session next week please.
+- Can I get a pedicure booked with Mia this weekend?
+- I need to make an appointment for an acrylic fill.
+- Can you schedule me for a gel manicure at 2pm?
+- I'd like to book in for dip powder tomorrow.
+- Hoping to grab a polish change appointment this afternoon.
+- Can I book a paraffin treatment with Jordan next Tuesday?
+- I want to reserve a pedicure slot for Saturday morning.
+- Can you fit in an acrylic fill appointment today?
+- I'd like to schedule nail art with Priya next week.
+- Book me a gel manicure this weekend please.
+- Can I get an appointment for a polish change tomorrow?
+- I'm hoping to book a dip powder set this afternoon.
+- Can you schedule a paraffin treatment for me at 2pm?
+- I'd like an acrylic fill appointment with Dana.
+- Can I come in for a pedicure next Tuesday?
+- Book a nail art session for me this week please.
+- Do you have room for an acrylic fill today?
+- I want an appointment with Chris for a paraffin treatment.
+-
