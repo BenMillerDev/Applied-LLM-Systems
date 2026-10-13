@@ -1,0 +1,2323 @@
+{
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Do I have any openings this Saturday for a gel manicure with nail art? And why can't anyone book right after my 10 o'clock?": {
+    "question": "Do I have any openings this Saturday for a gel manicure with nail art? And why can't anyone book right after my 10 o'clock?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, this Saturday, October 17, you have two openings for a gel manicure with nail art at 11:15 AM and 11:30 AM. No one can book right after your 10 o'clock appointment because you have a 15-minute buffer time setting between appointments.",
+    "sources": [
+      "get_available_slots",
+      "get_salon_settings"
+    ],
+    "rationale": "get_available_slots returned 11:15 AM and 11:30 AM as the available slots for Saturday, and get_salon_settings shows a buffer_minutes setting of 15.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, this Saturday, October 17, you have two openings for a gel manicure with nail art at 11:15 AM and 11:30 AM. No one can book right after your 10 o'clock appointment because you have a 15-minute buffer time setting between appointments.\",\n  \"sources\": [\n    \"get_available_slots\",\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_available_slots returned 11:15 AM and 11:30 AM as the available slots for Saturday, and get_salon_settings shows a buffer_minutes setting of 15.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_160589",
+        "name": "get_available_slots",
+        "args": {
+          "service_ids": [
+            "gel-manicure"
+          ],
+          "date": "2026-10-17",
+          "add_on_ids": [
+            "nail-art"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "total_duration_minutes": 75,
+            "slot_count": 2,
+            "slots": [
+              "11:15 AM",
+              "11:30 AM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 0,
+        "call_id": "call_160590",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, this Saturday, October 17, you have two openings for a gel manicure with nail art at 11:15 AM and 11:30 AM. No one can book right after your 10 o'clock appointment because you have a 15-minute buffer time setting between appointments.\",\n  \"sources\": [\n    \"get_available_slots\",\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_available_slots returned 11:15 AM and 11:30 AM as the available slots for Saturday, and get_salon_settings shows a buffer_minutes setting of 15.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What are my hours on Saturdays, and do I have any days blocked off this month?": {
+    "question": "What are my hours on Saturdays, and do I have any days blocked off this month?",
+    "owner_id": "salon-owner-1",
+    "answer": "On Saturdays, your hours are 9:00 AM to 3:00 PM. For this month, you have one blocked date: October 31, 2026.",
+    "sources": [
+      "get_salon_settings"
+    ],
+    "rationale": "get_salon_settings returned Saturday hours as 9:00 to 15:00 and blocked_dates as ['2026-10-31'].",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"On Saturdays, your hours are 9:00 AM to 3:00 PM. For this month, you have one blocked date: October 31, 2026.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings returned Saturday hours as 9:00 to 15:00 and blocked_dates as ['2026-10-31'].\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_127194",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"On Saturdays, your hours are 9:00 AM to 3:00 PM. For this month, you have one blocked date: October 31, 2026.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings returned Saturday hours as 9:00 to 15:00 and blocked_dates as ['2026-10-31'].\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can my clients get a text message confirmation when they book?": {
+    "question": "Can my clients get a text message confirmation when they book?",
+    "owner_id": "salon-owner-1",
+    "answer": "Not yet. SMS booking confirmations via Twilio are planned for the future, but they aren't built yet.",
+    "sources": [
+      "roadmap"
+    ],
+    "rationale": "The roadmap doc states that SMS booking confirmations are planned via Twilio but not yet built.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Not yet. SMS booking confirmations via Twilio are planned for the future, but they aren't built yet.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc states that SMS booking confirmations are planned via Twilio but not yet built.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_157109",
+        "name": "search_docs",
+        "args": {
+          "query": "text message confirmation SMS booking"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "text message confirmation SMS booking",
+            "passages": [
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: push notifications for new bookings, which is blocked on setting up an Apple Developer account; SMS booking confirmations, planned via Twilio; automated reminders to clients who are due for a fill; deposit payments through Stripe at the time of booking; support for multiple staff members under a single salon account, rather than the current single-owner model; a before-and-after photo gallery attached to client profiles; and a custom domain for the customer booking page instead of the default Firebase-hosted URL."
+              },
+              {
+                "doc": "roadmap",
+                "text": "None of these seven items exist in the app today. An owner asking about SMS confirmations, deposits, or multi-staff support right now would need to be told those are planned, not available -- there's no partial or beta version of any of them running yet."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Not yet. SMS booking confirmations via Twilio are planned for the future, but they aren't built yet.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc states that SMS booking confirmations are planned via Twilio but not yet built.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Please block off November 2nd for me, I'll be out of town.": {
+    "question": "Please block off November 2nd for me, I'll be out of town.",
+    "owner_id": "salon-owner-1",
+    "answer": "I can't block dates for you \u2014 you'll need to update your blocked dates directly in the app settings.",
+    "sources": [],
+    "rationale": "Rule 3 states that I cannot block dates and must inform the owner I can't do it.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"I can't block dates for you \u2014 you'll need to update your blocked dates directly in the app settings.\",\n  \"sources\": [],\n  \"rationale\": \"Rule 3 states that I cannot block dates and must inform the owner I can't do it.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "final_text": "{\n  \"answer\": \"I can't block dates for you \u2014 you'll need to update your blocked dates directly in the app settings.\",\n  \"sources\": [],\n  \"rationale\": \"Rule 3 states that I cannot block dates and must inform the owner I can't do it.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|If I delete all of a client's appointments, do I lose the notes I wrote about her?": {
+    "question": "If I delete all of a client's appointments, do I lose the notes I wrote about her?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, you won't lose the notes. The notes live in a separate clientNotes collection that persists independently, so they stay even if every appointment tied to that client is deleted.",
+    "sources": [
+      "client_profiles"
+    ],
+    "rationale": "The client_profiles doc explains that client notes are stored separately from appointment records and persist independently if all appointments are deleted.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"No, you won't lose the notes. The notes live in a separate clientNotes collection that persists independently, so they stay even if every appointment tied to that client is deleted.\",\n  \"sources\": [\n    \"client_profiles\"\n  ],\n  \"rationale\": \"The client_profiles doc explains that client notes are stored separately from appointment records and persist independently if all appointments are deleted.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_192762",
+        "name": "search_docs",
+        "args": {
+          "query": "client notes delete appointments history"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "client notes delete appointments history",
+            "passages": [
+              {
+                "doc": "client_profiles",
+                "text": "Owners can also attach free-form notes to a client -- reminders about a preference, an allergy, or anything else worth remembering. Those notes aren't stored on the appointment record itself; they live in a separate clientNotes collection, keyed by a combination of the owner's id and the client's email, so a note persists independently even if every appointment tied to that client were ever deleted."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              },
+              {
+                "doc": "analytics",
+                "text": "All of these figures are computed client-side, directly from the appointment data already sitting in Firestore -- there's no separate analytics backend, no scheduled job aggregating numbers overnight, and no third-party analytics service involved. Every chart reflects a live query over the same appointments collection everything else in the app reads from."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"No, you won't lose the notes. The notes live in a separate clientNotes collection that persists independently, so they stay even if every appointment tied to that client is deleted.\",\n  \"sources\": [\n    \"client_profiles\"\n  ],\n  \"rationale\": \"The client_profiles doc explains that client notes are stored separately from appointment records and persist independently if all appointments are deleted.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What does a client see right after they submit a booking?": {
+    "question": "What does a client see right after they submit a booking?",
+    "owner_id": "salon-owner-1",
+    "answer": "Once a client submits their booking, a confirmation screen appears showing them a full summary of what they just booked.",
+    "sources": [
+      "customer_booking_flow"
+    ],
+    "rationale": "The customer booking flow documentation states that after submission, a confirmation screen shows the customer a full summary of their booking.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Once a client submits their booking, a confirmation screen appears showing them a full summary of what they just booked.\", \"sources\": [\"customer_booking_flow\"], \"rationale\": \"The customer booking flow documentation states that after submission, a confirmation screen shows the customer a full summary of their booking.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_94568",
+        "name": "search_docs",
+        "args": {
+          "query": "client see right after they submit a booking"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "client see right after they submit a booking",
+            "passages": [
+              {
+                "doc": "client_profiles",
+                "text": "Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: push notifications for new bookings, which is blocked on setting up an Apple Developer account; SMS booking confirmations, planned via Twilio; automated reminders to clients who are due for a fill; deposit payments through Stripe at the time of booking; support for multiple staff members under a single salon account, rather than the current single-owner model; a before-and-after photo gallery attached to client profiles; and a custom domain for the customer booking page instead of the default Firebase-hosted URL."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Once a client submits their booking, a confirmation screen appears showing them a full summary of what they just booked.\", \"sources\": [\"customer_booking_flow\"], \"rationale\": \"The customer booking flow documentation states that after submission, a confirmation screen shows the customer a full summary of their booking.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|If I stop offering a service and hide it, does its booking history get deleted?": {
+    "question": "If I stop offering a service and hide it, does its booking history get deleted?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, hiding a service by setting its isActive flag to false lets you hide it without deleting its history.",
+    "sources": [
+      "service_management"
+    ],
+    "rationale": "The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"No, hiding a service by setting its isActive flag to false lets you hide it without deleting its history.\", \"sources\": [\"service_management\"], \"rationale\": \"The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_232301",
+        "name": "search_docs",
+        "args": {
+          "query": "hide service booking history deleted"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "hide service booking history deleted",
+            "passages": [
+              {
+                "doc": "service_management",
+                "text": "Each service is stored in Firestore under the services collection, keyed by a generated serviceId. A service document carries the owning ownerId, a category, a name and description, a duration, a price, an array of optional addOns, and an isActive flag that lets an owner hide a service without deleting its history."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"No, hiding a service by setting its isActive flag to false lets you hide it without deleting its history.\", \"sources\": [\"service_management\"], \"rationale\": \"The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Do my analytics numbers come from a separate reporting service?": {
+    "question": "Do my analytics numbers come from a separate reporting service?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, your analytics numbers do not come from a separate reporting service. All of the figures are computed client-side directly from your appointment data in Firestore, with no separate analytics backend or third-party service involved.",
+    "sources": [
+      "analytics"
+    ],
+    "rationale": "The analytics doc states that all figures are computed client-side directly from Firestore and that there is no separate analytics backend or third-party reporting service.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"No, your analytics numbers do not come from a separate reporting service. All of the figures are computed client-side directly from your appointment data in Firestore, with no separate analytics backend or third-party service involved.\", \"sources\": [\"analytics\"], \"rationale\": \"The analytics doc states that all figures are computed client-side directly from Firestore and that there is no separate analytics backend or third-party reporting service.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_190363",
+        "name": "search_docs",
+        "args": {
+          "query": "analytics reporting service separate database source"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "analytics reporting service separate database source",
+            "passages": [
+              {
+                "doc": "analytics",
+                "text": "The analytics section of the owner dashboard, built from the AnalyticsSection component and its useAnalytics hook, gives an owner a read on how the business is doing without needing a separate reporting tool. It surfaces revenue charts, which services are performing best, which days of the week are busiest, and what fraction of scheduled appointments are actually completed."
+              },
+              {
+                "doc": "analytics",
+                "text": "All of these figures are computed client-side, directly from the appointment data already sitting in Firestore -- there's no separate analytics backend, no scheduled job aggregating numbers overnight, and no third-party analytics service involved. Every chart reflects a live query over the same appointments collection everything else in the app reads from."
+              },
+              {
+                "doc": "analytics",
+                "text": "## Analytics Dashboard"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"No, your analytics numbers do not come from a separate reporting service. All of the figures are computed client-side directly from your appointment data in Firestore, with no separate analytics backend or third-party service involved.\", \"sources\": [\"analytics\"], \"rationale\": \"The analytics doc states that all figures are computed client-side directly from Firestore and that there is no separate analytics backend or third-party reporting service.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can I share my booking link again after onboarding, and where would I do it?": {
+    "question": "Can I share my booking link again after onboarding, and where would I do it?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, you can. You can re-share or re-copy your booking link at any time from the settings screen.",
+    "sources": [
+      "onboarding"
+    ],
+    "rationale": "The onboarding doc states that sharing the booking link is a one-tap action available from the settings screen at any time.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, you can. You can re-share or re-copy your booking link at any time from the settings screen.\",\n  \"sources\": [\n    \"onboarding\"\n  ],\n  \"rationale\": \"The onboarding doc states that sharing the booking link is a one-tap action available from the settings screen at any time.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_198952",
+        "name": "search_docs",
+        "args": {
+          "query": "booking link"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "booking link",
+            "passages": [
+              {
+                "doc": "onboarding",
+                "text": "Sharing the booking link itself is a one-tap action available from the settings screen at any time, not just during onboarding -- an owner can go back and re-share or re-copy their link whenever they need to, for example when starting a new marketing push or updating their social media bio."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "architecture",
+                "text": "Navigation on the owner app uses Expo Router's file-based routing, with route groups separating the authentication screens (login and signup) from the authenticated owner screens (dashboard, appointments, clients, services, availability, and settings). The customer-facing booking flow lives entirely in its own codebase, booking-web, which shares almost no code with the owner app beyond the underlying booking data model."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, you can. You can re-share or re-copy your booking link at any time from the settings screen.\",\n  \"sources\": [\n    \"onboarding\"\n  ],\n  \"rationale\": \"The onboarding doc states that sharing the booking link is a one-tap action available from the settings screen at any time.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What details does the app keep on my owner account?": {
+    "question": "What details does the app keep on my owner account?",
+    "owner_id": "salon-owner-1",
+    "answer": "The app stores your email, name, salon name, phone number, a role field, and the timestamp of when your account was created in Firestore under your user record.",
+    "sources": [
+      "auth"
+    ],
+    "rationale": "The auth doc states that an owner's account record holds their email, name, salon's name, phone number, a role field, and the creation timestamp.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"The app stores your email, name, salon name, phone number, a role field, and the timestamp of when your account was created in Firestore under your user record.\", \"sources\": [\"auth\"], \"rationale\": \"The auth doc states that an owner's account record holds their email, name, salon's name, phone number, a role field, and the creation timestamp.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_156312",
+        "name": "search_docs",
+        "args": {
+          "query": "owner account details profile personal information"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "owner account details profile personal information",
+            "passages": [
+              {
+                "doc": "auth",
+                "text": "Each owner's account is stored in Firestore under a users collection, keyed by their Firebase uid. That record holds their email, their name, their salon's name, their phone number, a role field, and the timestamp their account was created -- everything the rest of the app needs to know about who's logged in without a second lookup."
+              },
+              {
+                "doc": "auth",
+                "text": "Owners can sign up and log in either with a plain email and password or with Google sign-in; the signup screen is where a brand-new owner account gets created, separate from the login screen used afterward. Auth state for the whole app is tracked through a single AuthContext, and the app's root layout automatically redirects any signed-out user back to the login screen, so no individual screen has to check auth state itself."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"The app stores your email, name, salon name, phone number, a role field, and the timestamp of when your account was created in Firestore under your user record.\", \"sources\": [\"auth\"], \"rationale\": \"The auth doc states that an owner's account record holds their email, name, salon's name, phone number, a role field, and the creation timestamp.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can a client come in tomorrow at 9 AM for an acrylic full set?": {
+    "question": "Can a client come in tomorrow at 9 AM for an acrylic full set?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, 9:00 AM tomorrow is open for an acrylic full set.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 9:00 AM as an available start time on 2026-10-13 for an acrylic full set.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, 9:00 AM tomorrow is open for an acrylic full set.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 9:00 AM as an available start time on 2026-10-13 for an acrylic full set.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_142106",
+        "name": "get_available_slots",
+        "args": {
+          "service_ids": [
+            "acrylic-full-set"
+          ],
+          "date": "2026-10-13"
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-13",
+            "weekday": "tuesday",
+            "total_duration_minutes": 90,
+            "slot_count": 31,
+            "slots": [
+              "9:00 AM",
+              "9:15 AM",
+              "9:30 AM",
+              "9:45 AM",
+              "10:00 AM",
+              "10:15 AM",
+              "10:30 AM",
+              "10:45 AM",
+              "11:00 AM",
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, 9:00 AM tomorrow is open for an acrylic full set.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 9:00 AM as an available start time on 2026-10-13 for an acrylic full set.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What's the latest I could start a volume lash full set this Saturday?": {
+    "question": "What's the latest I could start a volume lash full set this Saturday?",
+    "owner_id": "salon-owner-1",
+    "answer": "There are no available appointment times open this Saturday, October 17, for a volume lash full set.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"There are no available appointment times open this Saturday, October 17, for a volume lash full set.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_180329",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-17",
+          "service_ids": [
+            "lash-volume-full"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "total_duration_minutes": 150,
+            "slot_count": 0,
+            "slots": []
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"There are no available appointment times open this Saturday, October 17, for a volume lash full set.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Do I have any openings today for a gel pedicure?": {
+    "question": "Do I have any openings today for a gel pedicure?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, you have several openings today for a gel pedicure! Open slots run from 11:15 AM to 4:45 PM.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 23 available start times for a gel pedicure today starting at 11:15 AM.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, you have several openings today for a gel pedicure! Open slots run from 11:15 AM to 4:45 PM.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 23 available start times for a gel pedicure today starting at 11:15 AM.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_172865",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-12",
+          "service_ids": [
+            "gel-pedicure"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-12",
+            "weekday": "monday",
+            "total_duration_minutes": 75,
+            "slot_count": 23,
+            "slots": [
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM",
+              "4:45 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, you have several openings today for a gel pedicure! Open slots run from 11:15 AM to 4:45 PM.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 23 available start times for a gel pedicure today starting at 11:15 AM.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?": {
+    "question": "A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?",
+    "owner_id": "salon-owner-1",
+    "answer": "On Friday, October 16, the client can book a classic manicure and a brow wax back to back starting at any time from 9:00 AM to 4:45 PM in 15-minute intervals.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"On Friday, October 16, the client can book a classic manicure and a brow wax back to back starting at any time from 9:00 AM to 4:45 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_189198",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-16",
+          "service_ids": [
+            "classic-manicure",
+            "brow-wax"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-16",
+            "weekday": "friday",
+            "total_duration_minutes": 65,
+            "slot_count": 32,
+            "slots": [
+              "9:00 AM",
+              "9:15 AM",
+              "9:30 AM",
+              "9:45 AM",
+              "10:00 AM",
+              "10:15 AM",
+              "10:30 AM",
+              "10:45 AM",
+              "11:00 AM",
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM",
+              "4:45 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"On Friday, October 16, the client can book a classic manicure and a brow wax back to back starting at any time from 9:00 AM to 4:45 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-2|Any gel manicure openings this Saturday?": {
+    "question": "Any gel manicure openings this Saturday?",
+    "owner_id": "salon-owner-2",
+    "answer": "Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 7 open start times for a gel manicure on 2026-10-17, from 1:30 PM to 3:00 PM.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 7 open start times for a gel manicure on 2026-10-17, from 1:30 PM to 3:00 PM.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_217143",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-17",
+          "service_ids": [
+            "gel-manicure"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "total_duration_minutes": 60,
+            "slot_count": 7,
+            "slots": [
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 7 open start times for a gel manicure on 2026-10-17, from 1:30 PM to 3:00 PM.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How much buffer do I have between appointments, and which days am I closed?": {
+    "question": "How much buffer do I have between appointments, and which days am I closed?",
+    "owner_id": "salon-owner-1",
+    "answer": "You have a 15-minute buffer between appointments, and you are closed on Sundays.",
+    "sources": [
+      "get_salon_settings"
+    ],
+    "rationale": "get_salon_settings returned a buffer of 15 minutes and showed Sunday as closed (isOpen: false).",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"You have a 15-minute buffer between appointments, and you are closed on Sundays.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings returned a buffer of 15 minutes and showed Sunday as closed (isOpen: false).\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_188894",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"You have a 15-minute buffer between appointments, and you are closed on Sundays.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings returned a buffer of 15 minutes and showed Sunday as closed (isOpen: false).\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How long would a gel manicure with chrome powder on XL nails take?": {
+    "question": "How long would a gel manicure with chrome powder on XL nails take?",
+    "owner_id": "salon-owner-1",
+    "answer": "A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, bringing the total time to 90 minutes.",
+    "sources": [
+      "get_salon_settings"
+    ],
+    "rationale": "get_salon_settings shows a gel manicure is 60 minutes, chrome powder is 10 minutes, and XL length adds 20 minutes.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, bringing the total time to 90 minutes.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings shows a gel manicure is 60 minutes, chrome powder is 10 minutes, and XL length adds 20 minutes.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_174416",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "call_id": "call_226918",
+        "name": "run_python",
+        "args": {
+          "expression": "60 + 10 + 20"
+        },
+        "result": {
+          "ok": true,
+          "tool": "run_python",
+          "output": 90
+        }
+      },
+      {
+        "turn": 2,
+        "final_text": "{\n  \"answer\": \"A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, bringing the total time to 90 minutes.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings shows a gel manicure is 60 minutes, chrome powder is 10 minutes, and XL length adds 20 minutes.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can I add a second nail tech to my salon account?": {
+    "question": "Can I add a second nail tech to my salon account?",
+    "owner_id": "salon-owner-1",
+    "answer": "Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.",
+    "sources": [
+      "roadmap"
+    ],
+    "rationale": "The roadmap doc lists support for multiple staff members under a single salon account as planned but not yet built.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc lists support for multiple staff members under a single salon account as planned but not yet built.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_210425",
+        "name": "search_docs",
+        "args": {
+          "query": "second nail tech"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "second nail tech",
+            "passages": [
+              {
+                "doc": "architecture",
+                "text": "NailSalonApp is a full-stack booking platform for independent nail technicians, split into two separate codebases that serve two different audiences. The owner-facing app is a native iOS app built with React Native and Expo, written in TypeScript, and used daily to run the business. Customers never install anything -- they book through a separate React (TypeScript) web app reached from a single shared link, with no account required."
+              },
+              {
+                "doc": "roadmap",
+                "text": "NailSalonApp's current status is active development with a complete, functional MVP -- the features described elsewhere in this documentation are built and working today. A separate set of features is planned but not yet implemented, and it's worth being explicit about which is which, since asking about a roadmap item should get a different answer than asking about something that already ships."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "call_id": "call_221772",
+        "name": "search_docs",
+        "args": {
+          "query": "staff multi-user team"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "staff multi-user team",
+            "passages": [
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: push notifications for new bookings, which is blocked on setting up an Apple Developer account; SMS booking confirmations, planned via Twilio; automated reminders to clients who are due for a fill; deposit payments through Stripe at the time of booking; support for multiple staff members under a single salon account, rather than the current single-owner model; a before-and-after photo gallery attached to client profiles; and a custom domain for the customer booking page instead of the default Firebase-hosted URL."
+              },
+              {
+                "doc": "availability",
+                "text": "## Availability and Scheduling"
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 2,
+        "final_text": "{\"answer\": \"Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc lists support for multiple staff members under a single salon account as planned but not yet built.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Will I get a push notification on my phone when someone books?": {
+    "question": "Will I get a push notification on my phone when someone books?",
+    "owner_id": "salon-owner-1",
+    "answer": "Not yet. Push notifications for new bookings are on the roadmap, but they aren't built yet.",
+    "sources": [
+      "roadmap"
+    ],
+    "rationale": "The roadmap doc lists push notifications for new bookings as planned but not yet built.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Not yet. Push notifications for new bookings are on the roadmap, but they aren't built yet.\",\n  \"sources\": [\n    \"roadmap\"\n  ],\n  \"rationale\": \"The roadmap doc lists push notifications for new bookings as planned but not yet built.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_8393",
+        "name": "search_docs",
+        "args": {
+          "query": "push notification booking"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "push notification booking",
+            "passages": [
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: push notifications for new bookings, which is blocked on setting up an Apple Developer account; SMS booking confirmations, planned via Twilio; automated reminders to clients who are due for a fill; deposit payments through Stripe at the time of booking; support for multiple staff members under a single salon account, rather than the current single-owner model; a before-and-after photo gallery attached to client profiles; and a custom domain for the customer booking page instead of the default Firebase-hosted URL."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "realtime_sync",
+                "text": "In practice this means that when a customer finishes a booking on the web app, the appointment shows up on the owner's dashboard and appointments screen immediately, with no pull-to-refresh or manual reload needed. The same listener-based hook backs every appointment-related screen, so the real-time behavior is consistent across the whole owner app rather than being implemented separately per screen."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Not yet. Push notifications for new bookings are on the roadmap, but they aren't built yet.\",\n  \"sources\": [\n    \"roadmap\"\n  ],\n  \"rationale\": \"The roadmap doc lists push notifications for new bookings as planned but not yet built.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How much does NailSalonApp cost per month?": {
+    "question": "How much does NailSalonApp cost per month?",
+    "owner_id": "salon-owner-1",
+    "answer": "I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.",
+    "sources": [],
+    "rationale": "None of the retrieved documentation passages mention pricing or subscription costs.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.\", \"sources\": [], \"rationale\": \"None of the retrieved documentation passages mention pricing or subscription costs.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_157001",
+        "name": "search_docs",
+        "args": {
+          "query": "cost price pricing subscription monthly"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "cost price pricing subscription monthly",
+            "passages": [
+              {
+                "doc": "client_profiles",
+                "text": "Owners can also attach free-form notes to a client -- reminders about a preference, an allergy, or anything else worth remembering. Those notes aren't stored on the appointment record itself; they live in a separate clientNotes collection, keyed by a combination of the owner's id and the client's email, so a note persists independently even if every appointment tied to that client were ever deleted."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "availability",
+                "text": "The availability screen is where an owner defines when they're open for business. It uses an inline time picker to set hours for each day of the week individually -- Monday through Sunday each get their own isOpen flag along with a startTime and endTime, so a salon can be closed on, say, Sundays and Mondays while keeping different hours the rest of the week."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.\", \"sources\": [], \"rationale\": \"None of the retrieved documentation passages mention pricing or subscription costs.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can my clients leave reviews after their appointment?": {
+    "question": "Can my clients leave reviews after their appointment?",
+    "owner_id": "salon-owner-1",
+    "answer": "I couldn't find anything in the app's documentation about clients leaving reviews after their appointment, so I can't tell you that it's supported.",
+    "sources": [],
+    "rationale": "None of the retrieved documentation passages mention client reviews.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"I couldn't find anything in the app's documentation about clients leaving reviews after their appointment, so I can't tell you that it's supported.\",\n  \"sources\": [],\n  \"rationale\": \"None of the retrieved documentation passages mention client reviews.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_193660",
+        "name": "search_docs",
+        "args": {
+          "query": "reviews"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "reviews",
+            "passages": [
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length; second, picking a date from the ones the owner has available; third, picking a specific time slot on that date; and fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "roadmap",
+                "text": "NailSalonApp's current status is active development with a complete, functional MVP -- the features described elsewhere in this documentation are built and working today. A separate set of features is planned but not yet implemented, and it's worth being explicit about which is which, since asking about a roadmap item should get a different answer than asking about something that already ships."
+              },
+              {
+                "doc": "onboarding",
+                "text": "A new owner's first login shows an onboarding checklist, rendered by the OnboardingChecklist component, that walks them through the handful of things worth doing before the app is really useful -- most notably, sharing their booking link with an actual client for the first time. Progress through that checklist is tracked by the useOnboarding hook rather than being recalculated from scratch on every visit."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"I couldn't find anything in the app's documentation about clients leaving reviews after their appointment, so I can't tell you that it's supported.\",\n  \"sources\": [],\n  \"rationale\": \"None of the retrieved documentation passages mention client reviews.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Cancel the 1 PM appointment on Saturday for me.": {
+    "question": "Cancel the 1 PM appointment on Saturday for me.",
+    "owner_id": "salon-owner-1",
+    "answer": "I can't cancel appointments for you\u2014you'll need to make that change directly in the app.",
+    "sources": [],
+    "rationale": "Rule 3 states that I cannot cancel appointments and must inform the user I cannot do so.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"I can't cancel appointments for you\u2014you'll need to make that change directly in the app.\", \"sources\": [], \"rationale\": \"Rule 3 states that I cannot cancel appointments and must inform the user I cannot do so.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "final_text": "{\"answer\": \"I can't cancel appointments for you\u2014you'll need to make that change directly in the app.\", \"sources\": [], \"rationale\": \"Rule 3 states that I cannot cancel appointments and must inform the user I cannot do so.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|If I delete all of a client's appointments, do I lose the notes I wrote about her?": {
+    "question": "If I delete all of a client's appointments, do I lose the notes I wrote about her?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, you won't lose the notes. The notes live in a separate collection keyed by your ID and the client's email, so they persist independently even if every appointment tied to that client is deleted.",
+    "sources": [
+      "client_profiles"
+    ],
+    "rationale": "The client_profiles doc states that client notes are stored separately from appointment records and persist independently even if every appointment tied to the client is deleted.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"No, you won't lose the notes. The notes live in a separate collection keyed by your ID and the client's email, so they persist independently even if every appointment tied to that client is deleted.\",\n  \"sources\": [\n    \"client_profiles\"\n  ],\n  \"rationale\": \"The client_profiles doc states that client notes are stored separately from appointment records and persist independently even if every appointment tied to the client is deleted.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_35336",
+        "name": "search_docs",
+        "args": {
+          "query": "client notes delete appointments"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "client notes delete appointments",
+            "passages": [
+              {
+                "doc": "client_profiles",
+                "text": "Owners can also attach free-form notes to a client -- reminders about a preference, an allergy, or anything else worth remembering. Those notes aren't stored on the appointment record itself; they live in a separate clientNotes collection, keyed by a combination of the owner's id and the client's email, so a note persists independently even if every appointment tied to that client were ever deleted."
+              },
+              {
+                "doc": "analytics",
+                "text": "All of these figures are computed client-side, directly from the appointment data already sitting in Firestore -- there's no separate analytics backend, no scheduled job aggregating numbers overnight, and no third-party analytics service involved. Every chart reflects a live query over the same appointments collection everything else in the app reads from."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client Profiles. Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"No, you won't lose the notes. The notes live in a separate collection keyed by your ID and the client's email, so they persist independently even if every appointment tied to that client is deleted.\",\n  \"sources\": [\n    \"client_profiles\"\n  ],\n  \"rationale\": \"The client_profiles doc states that client notes are stored separately from appointment records and persist independently even if every appointment tied to the client is deleted.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What does a client see right after they submit a booking?": {
+    "question": "What does a client see right after they submit a booking?",
+    "owner_id": "salon-owner-1",
+    "answer": "Once a booking is submitted, a confirmation screen shows the customer a full summary of what they just booked.",
+    "sources": [
+      "customer_booking_flow"
+    ],
+    "rationale": "The customer_booking_flow doc states that once submitted, a confirmation screen shows the customer a full summary of what they just booked.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Once a booking is submitted, a confirmation screen shows the customer a full summary of what they just booked.\", \"sources\": [\"customer_booking_flow\"], \"rationale\": \"The customer_booking_flow doc states that once submitted, a confirmation screen shows the customer a full summary of what they just booked.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_12405",
+        "name": "search_docs",
+        "args": {
+          "query": "what client sees after booking confirmation submission"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "what client sees after booking confirmation submission",
+            "passages": [
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Customer Booking Flow. The booking experience a customer actually sees lives entirely in a separate React web app, hosted on Firebase and reachable from any device with just a link -- no account, no app install, and no password to remember. It's designed to work the same whether a client opens it on their phone from a text message or on a laptop."
+              },
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: SMS booking confirmations, planned via Twilio"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Once a booking is submitted, a confirmation screen shows the customer a full summary of what they just booked.\", \"sources\": [\"customer_booking_flow\"], \"rationale\": \"The customer_booking_flow doc states that once submitted, a confirmation screen shows the customer a full summary of what they just booked.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|If I stop offering a service and hide it, does its booking history get deleted?": {
+    "question": "If I stop offering a service and hide it, does its booking history get deleted?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, hiding a service by setting its isActive flag to inactive does not delete its booking history.",
+    "sources": [
+      "service_management"
+    ],
+    "rationale": "The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"No, hiding a service by setting its isActive flag to inactive does not delete its booking history.\", \"sources\": [\"service_management\"], \"rationale\": \"The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_480294",
+        "name": "search_docs",
+        "args": {
+          "query": "hide service booking history deleted"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "hide service booking history deleted",
+            "passages": [
+              {
+                "doc": "service_management",
+                "text": "Each service is stored in Firestore under the services collection, keyed by a generated serviceId. A service document carries the owning ownerId, a category, a name and description, a duration, a price, an array of optional addOns, and an isActive flag that lets an owner hide a service without deleting its history."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client Profiles. Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"No, hiding a service by setting its isActive flag to inactive does not delete its booking history.\", \"sources\": [\"service_management\"], \"rationale\": \"The service_management doc states that the isActive flag lets an owner hide a service without deleting its history.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Do my analytics numbers come from a separate reporting service?": {
+    "question": "Do my analytics numbers come from a separate reporting service?",
+    "owner_id": "salon-owner-1",
+    "answer": "No, your analytics numbers do not come from a separate reporting service. All the figures are computed client-side directly from your appointment data in Firestore, with no third-party analytics service involved.",
+    "sources": [
+      "analytics"
+    ],
+    "rationale": "The analytics doc states that figures are computed client-side directly from appointment data in Firestore without a separate reporting tool or third-party service.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"No, your analytics numbers do not come from a separate reporting service. All the figures are computed client-side directly from your appointment data in Firestore, with no third-party analytics service involved.\", \"sources\": [\"analytics\"], \"rationale\": \"The analytics doc states that figures are computed client-side directly from appointment data in Firestore without a separate reporting tool or third-party service.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_16168",
+        "name": "search_docs",
+        "args": {
+          "query": "analytics"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "analytics",
+            "passages": [
+              {
+                "doc": "analytics",
+                "text": "Analytics Dashboard. The analytics section of the owner dashboard, built from the AnalyticsSection component and its useAnalytics hook, gives an owner a read on how the business is doing without needing a separate reporting tool. It surfaces revenue charts, which services are performing best, which days of the week are busiest, and what fraction of scheduled appointments are actually completed."
+              },
+              {
+                "doc": "analytics",
+                "text": "All of these figures are computed client-side, directly from the appointment data already sitting in Firestore -- there's no separate analytics backend, no scheduled job aggregating numbers overnight, and no third-party analytics service involved. Every chart reflects a live query over the same appointments collection everything else in the app reads from."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Each generated profile shows a client's total number of visits, their total lifetime spend, which services they book most often, and a computed fill due date that estimates when they're likely due for their next appointment based on their past booking pattern."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"No, your analytics numbers do not come from a separate reporting service. All the figures are computed client-side directly from your appointment data in Firestore, with no third-party analytics service involved.\", \"sources\": [\"analytics\"], \"rationale\": \"The analytics doc states that figures are computed client-side directly from appointment data in Firestore without a separate reporting tool or third-party service.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can I share my booking link again after onboarding, and where would I do it?": {
+    "question": "Can I share my booking link again after onboarding, and where would I do it?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, you can share your booking link at any time after onboarding. You can do it from the settings screen in the app whenever you need to copy or share it.",
+    "sources": [
+      "onboarding"
+    ],
+    "rationale": "The onboarding doc explains that sharing the booking link is available from the settings screen at any time.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, you can share your booking link at any time after onboarding. You can do it from the settings screen in the app whenever you need to copy or share it.\",\n  \"sources\": [\n    \"onboarding\"\n  ],\n  \"rationale\": \"The onboarding doc explains that sharing the booking link is available from the settings screen at any time.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_36159",
+        "name": "search_docs",
+        "args": {
+          "query": "booking link"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "booking link",
+            "passages": [
+              {
+                "doc": "onboarding",
+                "text": "Sharing the booking link itself is a one-tap action available from the settings screen at any time, not just during onboarding -- an owner can go back and re-share or re-copy their link whenever they need to, for example when starting a new marketing push or updating their social media bio."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: second, picking a date from the ones the owner has available"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, you can share your booking link at any time after onboarding. You can do it from the settings screen in the app whenever you need to copy or share it.\",\n  \"sources\": [\n    \"onboarding\"\n  ],\n  \"rationale\": \"The onboarding doc explains that sharing the booking link is available from the settings screen at any time.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What details does the app keep on my owner account?": {
+    "question": "What details does the app keep on my owner account?",
+    "owner_id": "salon-owner-1",
+    "answer": "Your owner account record stores your email address, your name, your salon's name, your phone number, a role field, and the timestamp of when your account was created.",
+    "sources": [
+      "auth"
+    ],
+    "rationale": "The auth doc states that the owner's account record in Firestore holds their email, name, salon name, phone number, role, and creation timestamp.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Your owner account record stores your email address, your name, your salon's name, your phone number, a role field, and the timestamp of when your account was created.\", \"sources\": [\"auth\"], \"rationale\": \"The auth doc states that the owner's account record in Firestore holds their email, name, salon name, phone number, role, and creation timestamp.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_56424",
+        "name": "search_docs",
+        "args": {
+          "query": "owner account details profile personal information"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "owner account details profile personal information",
+            "passages": [
+              {
+                "doc": "auth",
+                "text": "Each owner's account is stored in Firestore under a users collection, keyed by their Firebase uid. That record holds their email, their name, their salon's name, their phone number, a role field, and the timestamp their account was created -- everything the rest of the app needs to know about who's logged in without a second lookup."
+              },
+              {
+                "doc": "auth",
+                "text": "Authentication and User Data. Owners can sign up and log in either with a plain email and password or with Google sign-in; the signup screen is where a brand-new owner account gets created, separate from the login screen used afterward. Auth state for the whole app is tracked through a single AuthContext, and the app's root layout automatically redirects any signed-out user back to the login screen, so no individual screen has to check auth state itself."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client Profiles. Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Your owner account record stores your email address, your name, your salon's name, your phone number, a role field, and the timestamp of when your account was created.\", \"sources\": [\"auth\"], \"rationale\": \"The auth doc states that the owner's account record in Firestore holds their email, name, salon name, phone number, role, and creation timestamp.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can a client come in tomorrow at 9 AM for an acrylic full set?": {
+    "question": "Can a client come in tomorrow at 9 AM for an acrylic full set?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, tomorrow at 9:00 AM is available for an acrylic full set.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 9:00 AM as an available start time for an acrylic full set on 2026-10-13.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Yes, tomorrow at 9:00 AM is available for an acrylic full set.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 9:00 AM as an available start time for an acrylic full set on 2026-10-13.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_41933",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-13",
+          "service_ids": [
+            "acrylic-full-set"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-13",
+            "weekday": "tuesday",
+            "total_duration_minutes": 90,
+            "slot_count": 31,
+            "slots": [
+              "9:00 AM",
+              "9:15 AM",
+              "9:30 AM",
+              "9:45 AM",
+              "10:00 AM",
+              "10:15 AM",
+              "10:30 AM",
+              "10:45 AM",
+              "11:00 AM",
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Yes, tomorrow at 9:00 AM is available for an acrylic full set.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 9:00 AM as an available start time for an acrylic full set on 2026-10-13.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What's the latest I could start a volume lash full set this Saturday?": {
+    "question": "What's the latest I could start a volume lash full set this Saturday?",
+    "owner_id": "salon-owner-1",
+    "answer": "There are no open slots available for a volume lash full set this Saturday, October 17.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"There are no open slots available for a volume lash full set this Saturday, October 17.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_62389",
+        "name": "get_available_slots",
+        "args": {
+          "service_ids": [
+            "lash-volume-full"
+          ],
+          "date": "2026-10-17"
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "total_duration_minutes": 150,
+            "slot_count": 0,
+            "slots": []
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"There are no open slots available for a volume lash full set this Saturday, October 17.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned zero open slots for a volume lash full set on 2026-10-17.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Do I have any openings today for a gel pedicure?": {
+    "question": "Do I have any openings today for a gel pedicure?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, you have several openings today for a gel pedicure starting from 11:15 AM up until 4:45 PM.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 23 open start times on 2026-10-12 for a gel pedicure, ranging from 11:15 AM to 4:45 PM.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, you have several openings today for a gel pedicure starting from 11:15 AM up until 4:45 PM.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 23 open start times on 2026-10-12 for a gel pedicure, ranging from 11:15 AM to 4:45 PM.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_2212",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-12",
+          "service_ids": [
+            "gel-pedicure"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-12",
+            "weekday": "monday",
+            "total_duration_minutes": 75,
+            "slot_count": 23,
+            "slots": [
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM",
+              "4:45 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, you have several openings today for a gel pedicure starting from 11:15 AM up until 4:45 PM.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 23 open start times on 2026-10-12 for a gel pedicure, ranging from 11:15 AM to 4:45 PM.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?": {
+    "question": "A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?",
+    "owner_id": "salon-owner-1",
+    "answer": "Yes, you have 32 open slots available on Friday, October 16 for a classic manicure and a brow wax back to back. They can start anywhere from 9:00 AM to 4:45 PM in 15-minute intervals.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"Yes, you have 32 open slots available on Friday, October 16 for a classic manicure and a brow wax back to back. They can start anywhere from 9:00 AM to 4:45 PM in 15-minute intervals.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_7153",
+        "name": "get_available_slots",
+        "args": {
+          "date": "2026-10-16",
+          "service_ids": [
+            "classic-manicure",
+            "brow-wax"
+          ]
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-16",
+            "weekday": "friday",
+            "total_duration_minutes": 65,
+            "slot_count": 32,
+            "slots": [
+              "9:00 AM",
+              "9:15 AM",
+              "9:30 AM",
+              "9:45 AM",
+              "10:00 AM",
+              "10:15 AM",
+              "10:30 AM",
+              "10:45 AM",
+              "11:00 AM",
+              "11:15 AM",
+              "11:30 AM",
+              "11:45 AM",
+              "12:00 PM",
+              "12:15 PM",
+              "12:30 PM",
+              "12:45 PM",
+              "1:00 PM",
+              "1:15 PM",
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM",
+              "3:15 PM",
+              "3:30 PM",
+              "3:45 PM",
+              "4:00 PM",
+              "4:15 PM",
+              "4:30 PM",
+              "4:45 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\n  \"answer\": \"Yes, you have 32 open slots available on Friday, October 16 for a classic manicure and a brow wax back to back. They can start anywhere from 9:00 AM to 4:45 PM in 15-minute intervals.\",\n  \"sources\": [\n    \"get_available_slots\"\n  ],\n  \"rationale\": \"get_available_slots returned 32 open start times on 2026-10-16 for classic-manicure and brow-wax, from 9:00 AM to 4:45 PM.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-2|Any gel manicure openings this Saturday?": {
+    "question": "Any gel manicure openings this Saturday?",
+    "owner_id": "salon-owner-2",
+    "answer": "Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.",
+    "sources": [
+      "get_available_slots"
+    ],
+    "rationale": "get_available_slots returned 7 open start times for a gel-manicure on 2026-10-17 from 1:30 PM to 3:00 PM.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 7 open start times for a gel-manicure on 2026-10-17 from 1:30 PM to 3:00 PM.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_26514",
+        "name": "get_available_slots",
+        "args": {
+          "service_ids": [
+            "gel-manicure"
+          ],
+          "date": "2026-10-17"
+        },
+        "result": {
+          "ok": true,
+          "tool": "get_available_slots",
+          "output": {
+            "date": "2026-10-17",
+            "weekday": "saturday",
+            "total_duration_minutes": 60,
+            "slot_count": 7,
+            "slots": [
+              "1:30 PM",
+              "1:45 PM",
+              "2:00 PM",
+              "2:15 PM",
+              "2:30 PM",
+              "2:45 PM",
+              "3:00 PM"
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Yes, this Saturday, October 17, there are gel manicure openings starting from 1:30 PM to 3:00 PM in 15-minute intervals.\", \"sources\": [\"get_available_slots\"], \"rationale\": \"get_available_slots returned 7 open start times for a gel-manicure on 2026-10-17 from 1:30 PM to 3:00 PM.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How much buffer do I have between appointments, and which days am I closed?": {
+    "question": "How much buffer do I have between appointments, and which days am I closed?",
+    "owner_id": "salon-owner-1",
+    "answer": "You have a 15-minute buffer between appointments, and you are closed on Sundays.",
+    "sources": [
+      "get_salon_settings"
+    ],
+    "rationale": "get_salon_settings returned a buffer_minutes value of 15 and showed Sunday as isOpen: false.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"You have a 15-minute buffer between appointments, and you are closed on Sundays.\", \"sources\": [\"get_salon_settings\"], \"rationale\": \"get_salon_settings returned a buffer_minutes value of 15 and showed Sunday as isOpen: false.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_43730",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"You have a 15-minute buffer between appointments, and you are closed on Sundays.\", \"sources\": [\"get_salon_settings\"], \"rationale\": \"get_salon_settings returned a buffer_minutes value of 15 and showed Sunday as isOpen: false.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How long would a gel manicure with chrome powder on XL nails take?": {
+    "question": "How long would a gel manicure with chrome powder on XL nails take?",
+    "owner_id": "salon-owner-1",
+    "answer": "A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, for a total of 90 minutes.",
+    "sources": [
+      "get_salon_settings"
+    ],
+    "rationale": "get_salon_settings lists 60 minutes for a gel-manicure, 10 minutes for chrome-powder, and 20 extra minutes for xl nails, which sum to 90 minutes.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, for a total of 90 minutes.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings lists 60 minutes for a gel-manicure, 10 minutes for chrome-powder, and 20 extra minutes for xl nails, which sum to 90 minutes.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_21750",
+        "name": "get_salon_settings",
+        "args": {},
+        "result": {
+          "ok": true,
+          "tool": "get_salon_settings",
+          "output": {
+            "weekly_hours": {
+              "monday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "tuesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "wednesday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "thursday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "friday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              },
+              "saturday": {
+                "isOpen": true,
+                "startTime": "9:00",
+                "endTime": "15:00"
+              },
+              "sunday": {
+                "isOpen": false,
+                "startTime": "9:00",
+                "endTime": "18:00"
+              }
+            },
+            "buffer_minutes": 15,
+            "blocked_dates": [
+              "2026-10-31"
+            ],
+            "service_minutes": {
+              "classic-manicure": 45,
+              "gel-manicure": 60,
+              "acrylic-full-set": 90,
+              "acrylic-fill": 60,
+              "classic-pedicure": 60,
+              "gel-pedicure": 75,
+              "gel-removal": 30,
+              "acrylic-removal": 45,
+              "lash-classic-full": 120,
+              "lash-hybrid-full": 135,
+              "lash-volume-full": 150,
+              "lash-classic-fill": 60,
+              "lash-hybrid-fill": 75,
+              "lash-volume-fill": 90,
+              "lash-removal": 30,
+              "brow-wax": 20,
+              "brow-lamination": 45,
+              "brow-tint": 20
+            },
+            "add_on_minutes": {
+              "nail-art": 15,
+              "ombre": 15,
+              "chrome-powder": 10,
+              "paraffin-wax": 15,
+              "callus-removal": 15,
+              "shape-change": 10,
+              "gel-removal": 30,
+              "lash-bath": 10,
+              "brow-tint": 20,
+              "brow-wax": 20
+            },
+            "nail_length_extra_minutes": {
+              "short": 0,
+              "medium": 0,
+              "long": 15,
+              "xl": 20
+            }
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "call_id": "call_41178",
+        "name": "run_python",
+        "args": {
+          "expression": "60 + 10 + 20"
+        },
+        "result": {
+          "ok": true,
+          "tool": "run_python",
+          "output": 90
+        }
+      },
+      {
+        "turn": 2,
+        "final_text": "{\n  \"answer\": \"A gel manicure takes 60 minutes, adding chrome powder takes 10 minutes, and XL nails add 20 extra minutes, for a total of 90 minutes.\",\n  \"sources\": [\n    \"get_salon_settings\"\n  ],\n  \"rationale\": \"get_salon_settings lists 60 minutes for a gel-manicure, 10 minutes for chrome-powder, and 20 extra minutes for xl nails, which sum to 90 minutes.\"\n}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can I add a second nail tech to my salon account?": {
+    "question": "Can I add a second nail tech to my salon account?",
+    "owner_id": "salon-owner-1",
+    "answer": "Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.",
+    "sources": [
+      "roadmap"
+    ],
+    "rationale": "The roadmap doc notes that support for multiple staff members under a single account is planned but not yet built.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc notes that support for multiple staff members under a single account is planned but not yet built.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_17731",
+        "name": "search_docs",
+        "args": {
+          "query": "second nail tech salon account multiple staff employees"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "second nail tech salon account multiple staff employees",
+            "passages": [
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: support for multiple staff members under a single salon account, rather than the current single-owner model"
+              },
+              {
+                "doc": "architecture",
+                "text": "NailSalonApp Architecture. NailSalonApp is a full-stack booking platform for independent nail technicians, split into two separate codebases that serve two different audiences. The owner-facing app is a native iOS app built with React Native and Expo, written in TypeScript, and used daily to run the business. Customers never install anything -- they book through a separate React (TypeScript) web app reached from a single shared link, with no account required."
+              },
+              {
+                "doc": "service_management",
+                "text": "New owners don't start from an empty service list. The app ships with a default service catalog defined directly in the app's constants, so a newly created salon account already has a reasonable starting menu to edit rather than a blank screen. This same catalog is also what the onboarding flow points to when it prompts a new owner to review their services."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Not yet. Support for multiple staff members under a single salon account is on the roadmap, but the app currently uses a single-owner model.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc notes that support for multiple staff members under a single account is planned but not yet built.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Will I get a push notification on my phone when someone books?": {
+    "question": "Will I get a push notification on my phone when someone books?",
+    "owner_id": "salon-owner-1",
+    "answer": "Not yet. Push notifications for new bookings are planned, but they aren't built yet because they are blocked on setting up an Apple Developer account.",
+    "sources": [
+      "roadmap"
+    ],
+    "rationale": "The roadmap doc notes that push notifications for new bookings are planned but not yet built.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"Not yet. Push notifications for new bookings are planned, but they aren't built yet because they are blocked on setting up an Apple Developer account.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc notes that push notifications for new bookings are planned but not yet built.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_20475",
+        "name": "search_docs",
+        "args": {
+          "query": "push notification booking"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "push notification booking",
+            "passages": [
+              {
+                "doc": "roadmap",
+                "text": "Planned but not yet built: push notifications for new bookings, which is blocked on setting up an Apple Developer account"
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "realtime_sync",
+                "text": "In practice this means that when a customer finishes a booking on the web app, the appointment shows up on the owner's dashboard and appointments screen immediately, with no pull-to-refresh or manual reload needed. The same listener-based hook backs every appointment-related screen, so the real-time behavior is consistent across the whole owner app rather than being implemented separately per screen."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"Not yet. Push notifications for new bookings are planned, but they aren't built yet because they are blocked on setting up an Apple Developer account.\", \"sources\": [\"roadmap\"], \"rationale\": \"The roadmap doc notes that push notifications for new bookings are planned but not yet built.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How much does NailSalonApp cost per month?": {
+    "question": "How much does NailSalonApp cost per month?",
+    "owner_id": "salon-owner-1",
+    "answer": "I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.",
+    "sources": [],
+    "rationale": "None of the retrieved documentation passages mention pricing or monthly costs.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.\", \"sources\": [], \"rationale\": \"None of the retrieved documentation passages mention pricing or monthly costs.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_5184",
+        "name": "search_docs",
+        "args": {
+          "query": "cost price pricing subscription monthly"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "cost price pricing subscription monthly",
+            "passages": [
+              {
+                "doc": "availability",
+                "text": "Availability and Scheduling. The availability screen is where an owner defines when they're open for business. It uses an inline time picker to set hours for each day of the week individually -- Monday through Sunday each get their own isOpen flag along with a startTime and endTime, so a salon can be closed on, say, Sundays and Mondays while keeping different hours the rest of the week."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "client_profiles",
+                "text": "Client Profiles. Client profiles in NailSalonApp are not something an owner fills out -- they're built automatically from booking history. The useClients hook scans every appointment tied to a given client's email address and aggregates it into a profile, so a client's history exists the moment they've booked once, with no separate \"add a client\" step anywhere in the app."
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about how much NailSalonApp costs per month, so I can't answer that.\", \"sources\": [], \"rationale\": \"None of the retrieved documentation passages mention pricing or monthly costs.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can my clients leave reviews after their appointment?": {
+    "question": "Can my clients leave reviews after their appointment?",
+    "owner_id": "salon-owner-1",
+    "answer": "I couldn't find anything in the app's documentation about clients leaving reviews, so I can't tell you whether that feature is supported.",
+    "sources": [],
+    "rationale": "None of the retrieved search results mention client reviews.",
+    "parse_error": false,
+    "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about clients leaving reviews, so I can't tell you whether that feature is supported.\", \"sources\": [], \"rationale\": \"None of the retrieved search results mention client reviews.\"}",
+    "call_log": [
+      {
+        "turn": 0,
+        "call_id": "call_37116",
+        "name": "search_docs",
+        "args": {
+          "query": "reviews"
+        },
+        "result": {
+          "ok": true,
+          "tool": "search_docs",
+          "output": {
+            "query": "reviews",
+            "passages": [
+              {
+                "doc": "onboarding",
+                "text": "Onboarding Flow. A new owner's first login shows an onboarding checklist, rendered by the OnboardingChecklist component, that walks them through the handful of things worth doing before the app is really useful -- most notably, sharing their booking link with an actual client for the first time. Progress through that checklist is tracked by the useOnboarding hook rather than being recalculated from scratch on every visit."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: fourth, entering contact information to confirm the booking. Only dates and times the owner has actually marked as available make it into the date and time pickers in the first place -- the filtering happens before the customer ever sees the calendar, so there's no way to select a slot that's already taken or outside the owner's hours. Once submitted, a confirmation screen shows the customer a full summary of what they just booked."
+              },
+              {
+                "doc": "customer_booking_flow",
+                "text": "Booking happens in four steps, tracked visually by a shared progress bar component so the customer always knows how much is left: first, selecting a service along with any add-ons, nail shape, and nail length"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "turn": 1,
+        "final_text": "{\"answer\": \"I couldn't find anything in the app's documentation about clients leaving reviews, so I can't tell you whether that feature is supported.\", \"sources\": [], \"rationale\": \"None of the retrieved search results mention client reviews.\"}"
+      }
+    ]
+  },
+  "gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Cancel the 1 PM appointment on Saturday for me.": {
+    "question": "Cancel the 1 PM appointment on Saturday for me.",
+    "owner_id": "salon-owner-1",
+    "answer": "I can't cancel appointments for you. You'll need to cancel the Saturday 1 PM appointment directly in your calendar or the app.",
+    "sources": [],
+    "rationale": "Rule 3 states I cannot cancel appointments and must inform the user when they ask me to do so.",
+    "parse_error": false,
+    "final_text": "{\n  \"answer\": \"I can't cancel appointments for you. You'll need to cancel the Saturday 1 PM appointment directly in your calendar or the app.\",\n  \"sources\": [],\n  \"rationale\": \"Rule 3 states I cannot cancel appointments and must inform the user when they ask me to do so.\"\n}",
+    "call_log": [
+      {
+        "turn": 0,
+        "final_text": "{\n  \"answer\": \"I can't cancel appointments for you. You'll need to cancel the Saturday 1 PM appointment directly in your calendar or the app.\",\n  \"sources\": [],\n  \"rationale\": \"Rule 3 states I cannot cancel appointments and must inform the user when they ask me to do so.\"\n}"
+      }
+    ]
+  }
+}
