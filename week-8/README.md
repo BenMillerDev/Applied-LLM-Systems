@@ -97,10 +97,20 @@ So the cause was dilution in Week 5's paragraph chunking, not vocabulary. HyDE d
 
 The notebook's write-up covers what's left: the model's search wording varies between runs, and it still rewrites questions into keywords before searching.
 
+## Results page
+
+The [results page](https://benmillerdev.github.io/Applied-LLM-Systems/week-8/results/) shows every saved run from the notebook:
+- all 18 held-out cases and the 4 demo questions, filterable by category;
+- for each one, every tool call with its arguments and result, the HyDE passage, the answer and its sources, the model-free checks and the judge's reasons;
+- a switch between the Part 2 runs and the reruns with the Part 3 fix, plus the [second-nail-tech question](https://benmillerdev.github.io/Applied-LLM-Systems/week-8/results/#case-14) before and after.
+
+It's generated from `cache/` and the notebook, so it shows exactly the runs the notebook reports.
+
 ## Contents
 - `week8_capstone.ipynb` — the full notebook, run top to bottom: Part 1 builds the system, Part 2 evaluates it, Part 3 traces the failure. It clones this repo's docs and prompts automatically if they aren't already present.
 - `prompts/` — `assistant_v1.md` (the assistant's system prompt) and `judge_v1.md` (the judge's rubric)
 - `cache/` — every model response from my run, so the notebook reproduces these results without an API key (see `cache/README.md`)
+- `results/` — the results page: `index.html` (the page), `results_template.html` (its layout) and `build_results_page.py`, which rebuilds the page from `cache/` and the notebook with `python week-8/results/build_results_page.py`
 
 ## Running it
 Open the notebook in Colab and run all cells. With a `GEMINI_API_KEY` Colab secret, any missing responses are generated and saved to Drive. Without one, every result loads from `cache/`.
