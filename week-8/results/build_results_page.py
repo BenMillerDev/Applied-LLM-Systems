@@ -1,9 +1,9 @@
 """
-Build results.html, a static page that shows every saved evaluation run from
+Build index.html, a static page that shows every saved evaluation run from
 week8_capstone.ipynb: the tool calls, what they returned, the answer, the
 model-free checks and the judge's scores.
 
-Everything on the page comes from files already in this folder:
+Everything on the page comes from files already in week-8/:
   - cache/runs.json, cache/judge.json, cache/hyde.json   the saved model responses
   - week8_capstone.ipynb                                 the model settings, EVAL_CASES and EXAMPLE_QUESTIONS
 
@@ -15,11 +15,12 @@ import json
 import pathlib
 from datetime import date
 
-HERE = pathlib.Path(__file__).resolve().parent
-NOTEBOOK_PATH = HERE / 'week8_capstone.ipynb'
-CACHE_DIR = HERE / 'cache'
+HERE = pathlib.Path(__file__).resolve().parent  # week-8/results
+WEEK_DIR = HERE.parent                          # week-8, where the notebook and cache live
+NOTEBOOK_PATH = WEEK_DIR / 'week8_capstone.ipynb'
+CACHE_DIR = WEEK_DIR / 'cache'
 TEMPLATE_PATH = HERE / 'results_template.html'
-OUTPUT_PATH = HERE / 'results.html'
+OUTPUT_PATH = HERE / 'index.html'  # index.html, so GitHub Pages serves it at .../week-8/results/
 
 REPO_URL = 'https://github.com/BenMillerDev/Applied-LLM-Systems'
 
