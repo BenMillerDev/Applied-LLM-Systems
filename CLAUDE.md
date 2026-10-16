@@ -142,3 +142,29 @@ Claude (Anthropic) assisted with:
 - Drafting the PR description (What/Why/How/Testing) for the Week 7 pull request, linked to issue #15
 
 The dataset-cleaning code, the retrieval and evaluation pipeline, the actual zero-shot/dynamic-few-shot accuracy numbers, and the decision to ship zero-shot as the default are my own. Claude helped me recompute and later catch an inconsistency in my own reported numbers, and helped me write up and frame the findings, but every number reported above came from my own notebook runs, not from AI output pasted in unverified.
+
+### Week 8 — Integrated LLM System: NailSalonApp Owner Assistant
+Claude (Anthropic) assisted with:
+- Building out the capstone notebook to integrate my earlier assignments into one
+  tool-calling assistant: Week 3's versioned prompt and JSON parsing, Week 4's agent
+  loop with `validate()` and `dispatch()` (extended with read-only enforcement and
+  owner scoping), and Week 5–6's paragraph chunking, FAISS retrieval, HyDE and
+  reranking wrapped as the `search_docs` tool, plus the Python port of NailSalonApp's
+  `timeSlots.ts` as the `get_available_slots` tool
+- Drafting the Part 2 evaluation code (the model-free metrics and the LLM-as-judge
+  prompt and runner) and the Part 3 diagnostic cells (the answer chunk's ranks, the
+  vocabulary and dilution tests, and the list-item chunking fix)
+- Building the results page in `week-8/results/`: `build_results_page.py` and its
+  HTML template, which generate a static GitHub Pages site from my cached runs,
+  judge scores and HyDE passages in `cache/` and the case list in my notebook
+- Drafting and revising CLAUDE.md, the week-8 README and `cache/README.md`
+- Drafting the Week 8 PR description
+- Drafting the research-note issue body and comments (#17)
+
+The analysis, measurements, and decisions in this assignment are my own. Every
+reported number, including the model-free metrics, the judge's 4.67 / 5.00 / 5.00,
+the second-nail-tech question's rank moving from 7th to 1st, and found@3 rising
+from 0.95 to 1.00, came from my own runs in Colab and is saved in `cache/`. 
+The results page only displays those saved runs and generates nothing new. Choosing which failure to trace, keeping HyDE and
+reranking on for the evaluation, and reviewing the judge's reasons for every score
+below 5 were my decisions.

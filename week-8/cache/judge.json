@@ -1,0 +1,506 @@
+{
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|If I delete all of a client's appointments, do I lose the notes I wrote about her?": {
+    "correctness": {
+      "reason": "The answer accurately addresses the question and includes all the key facts from the reference answer, explaining that notes are stored in a separate collection and persist independently.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the answer is directly supported by the documentation retrieved via search_docs.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly without unneeded hedging, as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What does a client see right after they submit a booking?": {
+    "correctness": {
+      "reason": "The assistant's answer matches the reference answer completely and includes all key facts.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the assistant's answer is directly supported by the customer_booking_flow documentation snippet.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly without unnecessary hedging when the tool results contained the answer.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|If I stop offering a service and hide it, does its booking history get deleted?": {
+    "correctness": {
+      "reason": "The answer correctly answers 'no' and explains that the isActive flag allows an owner to hide a service without deleting its history, perfectly matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the assistant's response is directly supported by the service_management documentation passage in the search results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant appropriately answered directly since the documentation contained the necessary information.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Do my analytics numbers come from a separate reporting service?": {
+    "correctness": {
+      "reason": "The assistant's answer accurately captures all key details from the reference answer, confirming that numbers do not come from a separate reporting service and explaining that figures are computed client-side directly from Firestore appointment data without a separate backend or third-party service.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the assistant's response is directly supported by the provided documentation search results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly answered the question directly using the information available in the search results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can I share my booking link again after onboarding, and where would I do it?": {
+    "correctness": {
+      "reason": "The answer accurately addresses the question and matches the reference answer, though it omits the minor detail that sharing is a 'one-tap action'.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "All claims in the answer are directly supported by the search documentation result.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the necessary information was available in the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What details does the app keep on my owner account?": {
+    "correctness": {
+      "reason": "The assistant correctly lists all the details stored on the account and mentions Firestore, but omits the specific collection name ('users') and key ('Firebase uid') mentioned in the reference answer.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "Every factual claim in the response is directly supported by the passage retrieved from the search_docs tool.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered the question directly using the information available in the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can a client come in tomorrow at 9 AM for an acrylic full set?": {
+    "correctness": {
+      "reason": "The assistant correctly confirmed that 9:00 AM tomorrow is available for an acrylic full set, but missed a couple minor details from the reference answer (that the appointment takes 90 minutes and the specific date/day).",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "Every claim made in the response is directly supported by the get_available_slots tool result.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly without unnecessary hedging when the tool output provided the answer.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|What's the latest I could start a volume lash full set this Saturday?": {
+    "correctness": {
+      "reason": "The assistant correctly states that there are no available times for a volume lash full set this Saturday, though it omits the extra context details (duration and longest open stretch) found in the reference answer.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "Every claim made by the assistant is directly supported by the tool result showing zero available slots for that service and date.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered the question directly using the tool results without refusing or hedging inappropriately.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Do I have any openings today for a gel pedicure?": {
+    "correctness": {
+      "reason": "The answer correctly identifies that there are openings today ranging from 11:15 AM to 4:45 PM, but omits minor details like the 75-minute duration and same-day notice explanation present in the reference.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "All factual claims made in the answer are directly supported by the tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the tools provided the requested information.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?": {
+    "correctness": {
+      "reason": "The answer accurately states the available start times from 9:00 AM to 4:45 PM in 15-minute intervals for Friday, October 16, matching the key facts in the reference.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All facts in the answer, including the date, day of the week, and the start times, are directly supported by the tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly using the information provided in the tool results, as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-2|Any gel manicure openings this Saturday?": {
+    "correctness": {
+      "reason": "The assistant accurately answers that there are gel manicure openings on Saturday, October 17, from 1:30 PM to 3:00 PM, matching all key information in the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All facts in the assistant's answer are directly supported by the tool output returned from get_available_slots.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the information was available in the tool output.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How much buffer do I have between appointments, and which days am I closed?": {
+    "correctness": {
+      "reason": "The assistant's response accurately contains all key facts from the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All factual claims made by the assistant are directly supported by the get_salon_settings tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the information was present in the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How long would a gel manicure with chrome powder on XL nails take?": {
+    "correctness": {
+      "reason": "The assistant's answer correctly states the total duration (90 minutes) and breaks down each component (60 minutes for gel manicure, 10 for chrome powder, and 20 for XL length), perfectly matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All factual statements and numbers in the assistant's answer are fully supported by the salon settings returned by the tool.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly answered the question directly using the retrieved tool information.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can I add a second nail tech to my salon account?": {
+    "correctness": {
+      "reason": "The assistant's answer perfectly captures all key facts from the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All facts in the response are directly supported by the documentation provided in the tool results (specifically the roadmap doc).",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to offer the functionality, clearly explaining that support for multiple staff members is a planned roadmap feature and not currently built.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Will I get a push notification on my phone when someone books?": {
+    "correctness": {
+      "reason": "The assistant correctly states that push notifications for new bookings are not built yet and are on the roadmap, but misses minor details from the reference regarding the Apple Developer account blocker and real-time dashboard updates.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "All factual claims made by the assistant are directly supported by the 'roadmap' documentation passage.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly flags the feature limitation by explaining that it is planned on the roadmap but not yet built.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|How much does NailSalonApp cost per month?": {
+    "correctness": {
+      "reason": "The assistant correctly states that the documentation does not contain information about pricing and declines to answer, perfectly matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The assistant's statement that the documentation does not cover pricing is completely supported by the search results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to answer when the required information was missing from the documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Can my clients leave reviews after their appointment?": {
+    "correctness": {
+      "reason": "The assistant's response accurately matches the reference answer, stating that reviews are not mentioned in the documentation so support cannot be confirmed.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The search results returned passages that do not mention client reviews, directly supporting the assistant's statement that no information on reviews was found in the documentation.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to confirm the feature exists, appropriately acknowledging the limitation in the documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|salon-owner-1|Cancel the 1 PM appointment on Saturday for me.": {
+    "correctness": {
+      "reason": "The assistant's answer perfectly matches the reference answer by stating it cannot cancel appointments and directing the owner to cancel it directly in the app.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The assistant correctly states its inability to cancel appointments and makes no unsupported factual claims.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant clearly declined to take an action it cannot perform, adhering to the expected behavior.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|If I delete all of a client's appointments, do I lose the notes I wrote about her?": {
+    "correctness": {
+      "reason": "The assistant's response accurately and fully conveys all key details from the reference answer, explaining that notes are stored separately and persist even if all appointments are deleted.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All factual claims made in the answer are directly supported by the search_docs passage from the client_profiles documentation.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant appropriately answered the question directly using the retrieved documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What does a client see right after they submit a booking?": {
+    "correctness": {
+      "reason": "The assistant's answer perfectly matches the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The claim is directly supported word-for-word by the passage retrieved in the tool results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant appropriately answered the question directly using the information available in the documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|If I stop offering a service and hide it, does its booking history get deleted?": {
+    "correctness": {
+      "reason": " The assistant correctly answers 'no' and explains that hiding a service using the isActive flag does not delete its booking history, matching all key facts from the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The answer is fully supported by the service_management documentation passage retrieved.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly without unnecessary hedging, exactly as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Do my analytics numbers come from a separate reporting service?": {
+    "correctness": {
+      "reason": "The assistant's answer perfectly matches all key details from the reference answer, confirming that analytics are computed client-side from Firestore appointment data without a third-party service or separate backend.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All statements made by the assistant are directly supported by the search_docs tool results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly and correctly without unnecessary hedging, as expected since the tools contained the answer.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can I share my booking link again after onboarding, and where would I do it?": {
+    "correctness": {
+      "reason": "The assistant accurately answers that the booking link can be shared at any time after onboarding from the settings screen, fully matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All facts in the assistant's response are directly supported by the documentation retrieved from the search_docs tool.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant appropriately answered the question directly using the provided documentation without unnecessary hedging or false refusal.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What details does the app keep on my owner account?": {
+    "correctness": {
+      "reason": "The assistant lists all the stored fields (email, name, salon name, phone number, role, timestamp), but omits the detail from the reference answer regarding how and where it is stored (Firestore under the users collection, keyed by Firebase uid).",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "All listed details in the assistant's answer are directly backed up by the retrieved documentation.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly and accurately based on the available documentation without unnecessary hedging or declining.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can a client come in tomorrow at 9 AM for an acrylic full set?": {
+    "correctness": {
+      "reason": "The answer correctly confirms that 9:00 AM tomorrow is available for an acrylic full set, though it leaves out the minor details of the exact date/day and duration mentioned in the reference answer.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "All claims in the response are fully supported by the get_available_slots tool result.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the information was present in the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|What's the latest I could start a volume lash full set this Saturday?": {
+    "correctness": {
+      "reason": "The assistant correctly answers that there are no open slots available this Saturday, though it misses the minor details about the exact duration and open stretch mentioned in the reference answer.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "The assistant's claim that no slots are available on Saturday, October 17 is fully supported by the tool output showing zero available slots.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant directly and correctly answered the question using the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Do I have any openings today for a gel pedicure?": {
+    "correctness": {
+      "reason": "The assistant correctly confirms that openings exist between 11:15 AM and 4:45 PM today, but misses minor details present in the reference answer such as the 75-minute duration and 15-minute intervals.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "Every claim in the assistant's response is directly supported by the list of slots returned in the tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly and accurately based on the tool results without refusing or unnecessarily hedging.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|A client wants a classic manicure and a brow wax back to back on Friday the 16th. What times work?": {
+    "correctness": {
+      "reason": "The answer provides the exact range of start times (9:00 AM to 4:45 PM in 15-minute intervals) and the date, matching all essential information in the reference.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All factual statements, including the number of open slots, start time range, and interval length, are directly supported by the tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered the question directly using available tool information, as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-2|Any gel manicure openings this Saturday?": {
+    "correctness": {
+      "reason": "The assistant's response accurately reflects the reference answer and includes all key details about the available slots on Saturday, October 17.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the assistant's answer, including the date, time range, and 15-minute interval detail, is directly supported by the tool results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly as expected since the necessary information was available in the tool results.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How much buffer do I have between appointments, and which days am I closed?": {
+    "correctness": {
+      "reason": "The answer accurately states both the 15-minute buffer and that the salon is closed on Sundays, perfectly matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "All facts in the answer are directly supported by the get_salon_settings tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly and correctly without unneeded hedging, as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How long would a gel manicure with chrome powder on XL nails take?": {
+    "correctness": {
+      "reason": "The answer perfectly matches the reference answer, correctly stating the time required for each part and the total calculation of 90 minutes.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim in the answer (60 minutes for gel manicure, 10 minutes for chrome powder, 20 extra minutes for XL length, and total of 90 minutes) is directly supported by the salon settings tool output.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant answered directly without any inappropriate refusal or unneeded hedging, as expected.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can I add a second nail tech to my salon account?": {
+    "correctness": {
+      "reason": "The assistant's response perfectly matches the reference answer, explaining that multi-staff support is on the roadmap and the app currently supports a single owner.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "Every claim made in the response is directly supported by the documentation tool result retrieved from the roadmap passage.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly identified the limitation and explicitly stated that the feature is planned but not yet supported.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Will I get a push notification on my phone when someone books?": {
+    "correctness": {
+      "reason": "The assistant correctly states that push notifications are not available yet, planned, and blocked on setting up an Apple Developer account, but it omits the minor detail from the reference regarding real-time updates on the dashboard.",
+      "score": 4
+    },
+    "groundedness": {
+      "reason": "Every claim made in the assistant's response is directly backed by the roadmap document in the search results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly flags the limit by explicitly stating that the feature is planned but not yet built.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|How much does NailSalonApp cost per month?": {
+    "correctness": {
+      "reason": "The assistant correctly states that pricing is not mentioned in the documentation and that it cannot answer, fully matching the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The assistant's claim that pricing isn't in the documentation is fully supported by the search results, which returned no information on cost.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to answer when the required information was absent from the documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Can my clients leave reviews after their appointment?": {
+    "correctness": {
+      "reason": "The assistant's answer perfectly matches the reference answer by stating that the documentation does not mention reviews.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The assistant's statement that it couldn't find anything in the documentation about reviews is fully supported by the tool search results.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to answer/flagged a limitation because the information was not covered in the documentation.",
+      "score": 5
+    }
+  },
+  "gemini-3.5-flash|v1|gemini-3.5-flash-lite|v1|hyde=True|rerank=True|chunking=paragraph + headings + list items|salon-owner-1|Cancel the 1 PM appointment on Saturday for me.": {
+    "correctness": {
+      "reason": "The assistant correctly states that it cannot cancel appointments and directs the user to cancel it in the app or calendar, matching the key points of the reference answer.",
+      "score": 5
+    },
+    "groundedness": {
+      "reason": "The assistant correctly declines to perform an action it cannot do and makes no unsupported factual claims beyond echoing the user's request details.",
+      "score": 5
+    },
+    "abstention": {
+      "reason": "The assistant correctly declined to perform the action, as expected.",
+      "score": 5
+    }
+  }
+}
