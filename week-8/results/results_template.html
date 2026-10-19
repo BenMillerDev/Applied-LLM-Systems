@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NailSalonApp Assistant Results</title>
+<meta name="description" content="Every saved evaluation run of a tool-calling LLM assistant for nail salon owners: tool calls, results, answers and LLM-judge scores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a short report header, then a two-pane trace explorer (case list | run detail), then the Part 3 before/after. */
+:root {
+  --bg: #fbf9fa;
+  --surface: #ffffff;
+  --sunk: #f4f0f2;
+  --ink: #1f1a1d;
+  --muted: #6c626a;
+  --line: #e6dfe3;
+  --accent: #a3245a;
+  --accent-soft: #f7e4ed;
+  --good: #1d7a4c;
+  --good-soft: #e1f2e8;
+  --mid: #8a5a00;
+  --mid-soft: #f8edd8;
+  --bad: #b42318;
+  --bad-soft: #fbe5e2;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141113; --surface: #1c181b; --sunk: #241f22; --ink: #f1ebee; --muted: #a89da4; --line: #342c31;
+    --accent: #ee7fae; --accent-soft: #3b1f2d; --good: #63d39a; --good-soft: #163325;
+    --mid: #f0bb63; --mid-soft: #3a2c12; --bad: #ff8b80; --bad-soft: #3d1a17;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141113; --surface: #1c181b; --sunk: #241f22; --ink: #f1ebee; --muted: #a89da4; --line: #342c31;
+  --accent: #ee7fae; --accent-soft: #3b1f2d; --good: #63d39a; --good-soft: #163325;
+  --mid: #f0bb63; --mid-soft: #3a2c12; --bad: #ff8b80; --bad-soft: #3d1a17;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- header ---------- */
+header.top { padding-block: 48px 28px; display: grid; gap: 14px; }
+header.top h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.05; }
+header.top h1 .tint { color: var(--accent); }
+.lede { max-width: 68ch; font-size: 17px; color: var(--muted); margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-weight: 500; }
+
+/* ---------- headline numbers ---------- */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.stat { background: var(--surface); padding: 16px 18px; display: grid; gap: 2px; align-content: start; }
+.stat .num { font-family: var(--font-display); font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.stat .num small { font-size: 15px; color: var(--muted); font-weight: 600; }
+.stat .label { font-weight: 600; }
+.stat .note { color: var(--muted); font-size: 13px; }
+
+/* ---------- pipeline ---------- */
+.pipeline { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; }
+.stage { flex: 1 1 150px; min-width: 0; background: var(--sunk); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.stage b { display: block; font-size: 13.5px; }
+.stage span { color: var(--muted); }
+.arrow { align-self: center; color: var(--muted); font-size: 16px; }
+@media (max-width: 760px) { .arrow { display: none; } }
+
+section { padding-block: 40px 8px; }
+.section-head { display: grid; gap: 6px; margin-bottom: 18px; }
+.section-head h2 { font-size: 26px; }
+.section-head p { margin: 0; color: var(--muted); max-width: 72ch; }
+
+/* ---------- explorer toolbar ---------- */
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.chips, .seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip, .seg button {
+  font: 500 13px var(--font-body); color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.seg { background: var(--sunk); border-radius: 999px; padding: 3px; gap: 2px; }
+.seg button { border-color: transparent; background: transparent; }
+.seg button[aria-pressed="true"] { background: var(--surface); border-color: var(--line); box-shadow: 0 1px 2px rgb(0 0 0 / 0.06); }
+.mode-summary { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; width: 100%; }
+
+/* ---------- explorer panes ---------- */
+.explorer { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .explorer { grid-template-columns: minmax(0, 1fr); } }
+.case-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); max-height: 760px; overflow-y: auto; }
+@media (max-width: 860px) { .case-list { max-height: 340px; } }
+.case-list .group { position: sticky; top: 0; z-index: 1; background: var(--sunk); padding: 6px 14px; font-size: 11.5px;
+  font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
+.case-btn { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); cursor: pointer;
+  padding: 10px 14px; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 2px 8px; color: var(--ink); font: inherit; }
+.case-btn:hover { background: var(--sunk); }
+.case-btn[aria-current="true"] { background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.case-btn .cid { font-family: var(--font-mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.case-btn .q { font-size: 14px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.case-btn .meta { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+
+.tag { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; padding: 1px 8px;
+  border-radius: 999px; background: var(--sunk); color: var(--muted); white-space: nowrap; }
+.tag.accent { background: var(--accent-soft); color: var(--accent); }
+.tag.good { background: var(--good-soft); color: var(--good); }
+.tag.bad { background: var(--bad-soft); color: var(--bad); }
+.scores { display: inline-flex; gap: 3px; }
+.sq { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px; font: 600 11px var(--font-mono); }
+.s5 { background: var(--good-soft); color: var(--good); }
+.s4 { background: var(--mid-soft); color: var(--mid); }
+.s3, .s2, .s1 { background: var(--bad-soft); color: var(--bad); }
+
+/* ---------- detail ---------- */
+.detail { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 20px; display: grid; gap: 22px; min-width: 0; }
+.detail-head { display: grid; gap: 8px; }
+.detail-head .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.detail-head h3 { font-size: 22px; line-height: 1.25; }
+.block-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.answer { background: var(--sunk); border-radius: 8px; padding: 14px 16px; display: grid; gap: 10px; }
+.answer p { margin: 0; }
+.answer .says { font-size: 16px; }
+.answer .why { color: var(--muted); font-size: 13.5px; }
+.sources { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); }
+.reference { margin: 8px 0 0; color: var(--muted); font-size: 13.5px; }
+.reference b { color: var(--ink); font-weight: 600; }
+
+.trace { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.step { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 0 12px; }
+.step .rail { display: grid; justify-items: center; grid-template-rows: 26px 1fr; }
+.step .dot { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font: 600 11px var(--font-mono);
+  background: var(--accent-soft); color: var(--accent); }
+.step.final .dot { background: var(--ink); color: var(--bg); }
+.step .line { width: 2px; background: var(--line); }
+.step:last-child .line { background: transparent; }
+.step .body { padding-bottom: 16px; min-width: 0; display: grid; gap: 4px; }
+.step .call { font-family: var(--font-mono); font-size: 13px; overflow-wrap: anywhere; }
+.step .call .fn { color: var(--accent); font-weight: 500; }
+.step .summary { font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+details { border-radius: 8px; }
+details > summary { cursor: pointer; font-size: 13px; font-weight: 500; color: var(--accent); width: fit-content; }
+details[open] > summary { margin-bottom: 8px; }
+.passages { display: grid; gap: 8px; }
+.passage { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; display: grid; gap: 6px; }
+.passage.hit { border-color: var(--good); background: var(--good-soft); }
+.passage .src { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.passage p { margin: 0; }
+.hyde { border-left: 3px solid var(--mid); background: var(--mid-soft); padding: 8px 12px; border-radius: 0 8px 8px 0; font-size: 13.5px; }
+.hyde b { color: var(--mid); }
+.slots { display: flex; flex-wrap: wrap; gap: 4px; }
+.slots span { font: 12px var(--font-mono); background: var(--sunk); border-radius: 5px; padding: 2px 6px; font-variant-numeric: tabular-nums; }
+pre { margin: 0; background: var(--sunk); border-radius: 8px; padding: 10px 12px; font: 12px/1.5 var(--font-mono); overflow-x: auto; max-height: 280px; }
+
+.judge { display: grid; gap: 10px; }
+.verdict { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; align-items: start; }
+.verdict .big { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; font: 700 16px var(--font-display); }
+.verdict b { display: block; font-size: 14px; }
+.verdict p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.delta { font-size: 12px; font-weight: 600; color: var(--good); margin-left: 6px; }
+.checks { display: flex; flex-wrap: wrap; gap: 6px; }
+.empty-note { color: var(--muted); font-size: 13.5px; margin: 0; }
+
+/* ---------- part 3 ---------- */
+.fix-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .fix-grid { grid-template-columns: minmax(0, 1fr); } }
+.fix-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 18px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.fix-card.after { border-color: var(--good); }
+.fix-card h3 { font-size: 18px; }
+.rank { display: flex; align-items: baseline; gap: 8px; }
+.rank .num { font-family: var(--font-display); font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.rank .of { color: var(--muted); }
+.search-row { display: grid; gap: 4px; font-size: 13.5px; border-top: 1px solid var(--line); padding-top: 10px; }
+.search-row .q { font-family: var(--font-mono); font-size: 12.5px; overflow-wrap: anywhere; }
+.evidence { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.evidence div { border-top: 2px solid var(--ink); padding-top: 10px; display: grid; gap: 4px; }
+.evidence b { font-family: var(--font-display); font-size: 22px; font-variant-numeric: tabular-nums; }
+.evidence p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.caveat { margin-top: 16px; color: var(--muted); font-size: 13.5px; max-width: 80ch; }
+
+footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; display: grid; gap: 6px; }
+footer p { margin: 0; max-width: 90ch; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .case-btn, .chip, .seg button { transition: background-color 120ms ease; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">COSC 650 Applied LLM Systems · Capstone · Ben Miller</div>
+    <h1>NailSalonApp <span class="tint">Owner Assistant</span></h1>
+    <p class="lede">A tool-calling assistant for the owner of a salon that uses my booking app. It answers how-the-app-works questions from the docs, reads the owner's own settings, and computes open appointment times with a port of the app's real slot algorithm. Every run below is the saved run from the evaluation, shown exactly as it happened.</p>
+    <nav class="links" id="links"></nav>
+  </header>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="pipeline" aria-label="How a question is answered">
+    <div class="stage"><b>Owner's question</b><span>signed in as one salon</span></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><b>Agent loop</b><span id="agent-model"></span></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><b>dispatch()</b><span>validates arguments, read-only tools only, adds the owner id itself</span></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><b>Four tools</b><span>search_docs (FAISS, HyDE, rerank), get_salon_settings, get_available_slots, run_python</span></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><b>JSON answer</b><span>answer, sources, rationale</span></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="stage"><b>LLM judge</b><span id="judge-model"></span></div>
+  </div>
+</div>
+
+<section class="wrap" id="runs" aria-labelledby="runs-title">
+  <div class="section-head">
+    <h2 id="runs-title">Every evaluation run</h2>
+    <p>18 held-out questions written after the system was built, plus the four demo questions from the notebook. Pick one to see each tool call, what it returned, the answer, the model-free checks and the judge's reasons.</p>
+  </div>
+  <div class="toolbar">
+    <div class="chips" id="filters" role="group" aria-label="Filter by category"></div>
+    <div class="seg" id="mode" role="group" aria-label="Which runs to show">
+      <button type="button" id="mode-part2" data-mode="part2" aria-pressed="true">Part 2 runs</button>
+      <button type="button" id="mode-fixed" data-mode="fixed" aria-pressed="false">Rerun with the fix</button>
+    </div>
+    <div class="mode-summary" id="mode-summary"></div>
+  </div>
+  <div class="explorer">
+    <ul class="case-list" id="case-list" aria-label="Runs"></ul>
+    <article class="detail" id="detail" aria-live="polite"></article>
+  </div>
+</section>
+
+<section class="wrap" id="fix" aria-labelledby="fix-title">
+  <div class="section-head">
+    <div class="eyebrow">Part 3 · one failure, traced and fixed</div>
+    <h2 id="fix-title">The second-nail-tech question</h2>
+    <p id="fix-intro"></p>
+  </div>
+  <div class="fix-grid" id="fix-grid"></div>
+  <div class="evidence" id="evidence"></div>
+  <p class="caveat" id="caveat"></p>
+</section>
+
+<footer class="wrap" id="footer"></footer>
+
+<script type="application/json" id="page-data">__PAGE_DATA__</script>
+<script>
+(() => {
+  const data = JSON.parse(document.getElementById('page-data').textContent);
+  const S = data.settings;
+  const NOTEBOOK_URL = `${data.repo_url}/blob/${S.BRANCH}/week-8/week8_capstone.ipynb`;
+  const COLAB_URL = `https://colab.research.google.com/github/BenMillerDev/Applied-LLM-Systems/blob/${S.BRANCH}/week-8/week8_capstone.ipynb`;
+  const CATEGORY_LABELS = { example: 'Demo', docs: 'Docs', slots: 'Open slots', settings: 'Settings',
+                            roadmap: 'Roadmap', not_covered: 'Not covered', refuse: 'Refuse' };
+  const DIMENSIONS = ['correctness', 'groundedness', 'abstention'];
+  const state = { mode: 'part2', filter: 'all', selected: 'e1' };
+
+  const esc = (value) => String(value ?? '').replace(/[&<>"']/g,
+    (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+  const ordinal = (n) => n + ({ 1: 'st', 2: 'nd', 3: 'rd' }[n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || 'th');
+  const fmt2 = (n) => (n == null ? '–' : Number(n).toFixed(2));
+  const $ = (id) => document.getElementById(id);
+
+  // ---------- header, stats, pipeline ----------
+  $('links').innerHTML = [
+    ['Notebook', NOTEBOOK_URL], ['Open in Colab', COLAB_URL],
+    ['Week 8 README', `${data.repo_url}/tree/${S.BRANCH}/week-8`], ['Repository', data.repo_url],
+  ].map(([label, href]) => `<a href="${href}">${label}</a>`).join('');
+  $('agent-model').textContent = `${S.MODEL}, versioned prompt ${S.PROMPT_VERSION}`;
+  $('judge-model').textContent = `${S.JUDGE_MODEL} scores correctness, groundedness, abstention`;
+
+  const p2 = data.summary.part2;
+  const stat = (num, label, note) => `<div class="stat"><div class="num">${num}</div><div class="label">${label}</div><div class="note">${note}</div></div>`;
+  $('stats').innerHTML = [
+    stat(`${fmt2(p2.judge.correctness)}<small> / 5</small>`, 'Correctness', 'LLM judge, mean of 18'),
+    stat(`${fmt2(p2.judge.groundedness)}<small> / 5</small>`, 'Groundedness', 'every claim from a tool result'),
+    stat(`${fmt2(p2.judge.abstention)}<small> / 5</small>`, 'Abstention', 'declines exactly when it should'),
+    stat(`${p2.checks_passed}<small> / ${p2.checks_total}</small>`, 'Model-free checks passed', 'tools, slot lookup, evidence, facts, citation, JSON'),
+    stat(`${fmt2(p2.tool_calls_per_answer)}`, 'Tool calls per answer', `${fmt2(p2.model_calls_per_answer)} model calls per answer`),
+  ].join('');
+
+  // ---------- items ----------
+  const caseItems = data.cases.map((c) => ({ ...c, key: String(c.id) }));
+  const exampleItems = data.examples.map((e) => ({ ...e, key: e.id }));
+  const allItems = [...exampleItems, ...caseItems];
+  const findItem = (key) => allItems.find((item) => item.key === key);
+
+  // the run, checks and judgment for an item in the current mode
+  function view(item) {
+    if (item.category === 'example') return { run: item.run, checks: null, judgment: null, note: state.mode === 'fixed' ? 'Demo questions were only run in Part 1, so this is the original run.' : null };
+    const chosen = item[state.mode] || item.part2;
+    const note = state.mode === 'fixed' && !item.fixed ? 'No rerun saved for this case.' : null;
+    return { ...chosen, note };
+  }
+
+  function scoreSquares(judgment) {
+    if (!judgment) return '';
+    return `<span class="scores" aria-label="judge scores">${DIMENSIONS.map((d) =>
+      `<span class="sq s${judgment[d].score}" title="${d}">${judgment[d].score}</span>`).join('')}</span>`;
+  }
+
+  // ---------- filters and mode ----------
+  const filterKeys = ['all', ...Object.keys(CATEGORY_LABELS)];
+  $('filters').innerHTML = filterKeys.map((key) =>
+    `<button type="button" class="chip" id="filter-${key}" data-filter="${key}" aria-pressed="${key === state.filter}">${key === 'all' ? 'All' : CATEGORY_LABELS[key]}</button>`).join('');
+  $('filters').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-filter]');
+    if (!button) return;
+    state.filter = button.dataset.filter;
+    $('filters').querySelectorAll('[data-filter]').forEach((b) => b.setAttribute('aria-pressed', b === button));
+    renderList();
+  });
+  $('mode').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-mode]');
+    if (!button) return;
+    state.mode = button.dataset.mode;
+    $('mode').querySelectorAll('[data-mode]').forEach((b) => b.setAttribute('aria-pressed', b === button));
+    renderAll();
+  });
+
+  function renderModeSummary() {
+    const s = data.summary[state.mode];
+    const label = state.mode === 'part2' ? `Part 2, ${S.CHUNKING} chunks` : `with the fix, ${S.FIXED_CHUNKING}`;
+    $('mode-summary').textContent = `${label}: judge ${fmt2(s.judge.correctness)} / ${fmt2(s.judge.groundedness)} / ${fmt2(s.judge.abstention)} · ` +
+      `${s.checks_passed} of ${s.checks_total} checks passed · ${fmt2(s.searches_per_answer)} searches per answer`;
+  }
+
+  // ---------- list ----------
+  function listRow(item) {
+    const v = view(item);
+    const searches = v.run ? v.run.steps.filter((s) => s.tool === 'search_docs').length : 0;
+    const id = item.category === 'example' ? item.key.replace('e', 'D') : `#${item.id}`;
+    return `<li><button type="button" class="case-btn" data-key="${item.key}" aria-current="${item.key === state.selected}">
+      <span class="cid">${id}</span><span class="q">${esc(item.question)}</span>
+      <span class="meta"><span class="tag">${CATEGORY_LABELS[item.category]}</span>${scoreSquares(v.judgment)}
+      ${searches > 1 ? `<span>${searches} searches</span>` : ''}</span></button></li>`;
+  }
+
+  function renderList() {
+    const visible = (item) => state.filter === 'all' || item.category === state.filter;
+    const demos = exampleItems.filter(visible);
+    const held = caseItems.filter(visible);
+    let html = '';
+    if (demos.length) html += `<li class="group">Demo questions</li>${demos.map(listRow).join('')}`;
+    if (held.length) html += `<li class="group">Held-out evaluation</li>${held.map(listRow).join('')}`;
+    $('case-list').innerHTML = html;
+  }
+  $('case-list').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-key]');
+    if (!button) return;
+    select(button.dataset.key, false);
+  });
+
+  // ---------- trace ----------
+  function formatArgs(args) {
+    return Object.entries(args || {}).map(([k, v]) => `${esc(k)}=${esc(JSON.stringify(v))}`).join(', ');
+  }
+
+  function stepSummary(step) {
+    const r = step.result;
+    if (!r.ok) return `<span class="tag bad">error</span> ${esc(r.error || JSON.stringify(r))}`;
+    const out = r.output;
+    switch (step.tool) {
+      case 'search_docs': {
+        const hits = out.passages.filter((p) => p.has_answer).length;
+        const docs = out.passages.map((p) => `<span class="tag">${esc(p.doc)}</span>`).join('');
+        return `${out.passages.length} passages ${docs}${hits ? '<span class="tag good">holds the answer</span>' : ''}`;
+      }
+      case 'get_available_slots':
+        return out.slot_count
+          ? `${out.slot_count} open start times on ${esc(out.weekday)} for ${out.total_duration_minutes} minutes`
+          : `No start time fits ${out.total_duration_minutes} minutes on ${esc(out.weekday)}`;
+      case 'get_salon_settings':
+        return `hours, buffer (${esc(out.buffer_minutes)} min), blocked dates, service and add-on lengths`;
+      default:
+        return `returned <code>${esc(JSON.stringify(out)).slice(0, 120)}</code>`;
+    }
+  }
+
+  function stepDetail(step) {
+    const r = step.result;
+    if (!r.ok) return '';
+    const out = r.output;
+    if (step.tool === 'search_docs') {
+      const hyde = step.hyde ? `<div class="hyde"><b>HyDE passage</b> the model wrote to search with: ${esc(step.hyde)}</div>` : '';
+      const passages = out.passages.map((p) => `<div class="passage${p.has_answer ? ' hit' : ''}">
+        <div class="src"><span class="tag">${esc(p.doc)}</span>${p.has_answer ? '<span class="tag good">holds the answer</span>' : ''}</div>
+        <p>${esc(p.text)}</p></div>`).join('');
+      return `<details><summary>Show what came back</summary><div class="passages">${hyde}${passages}</div></details>`;
+    }
+    if (step.tool === 'get_available_slots' && out.slots && out.slots.length) {
+      return `<details><summary>Show the ${out.slots.length} times</summary><div class="slots">${out.slots.map((s) => `<span>${esc(s)}</span>`).join('')}</div></details>`;
+    }
+    return `<details><summary>Show the result</summary><pre>${esc(JSON.stringify(out, null, 2))}</pre></details>`;
+  }
+
+  function renderTrace(run) {
+    const steps = run.steps.map((step) => `<li class="step"><div class="rail"><span class="dot">${step.turn + 1}</span><span class="line"></span></div>
+      <div class="body"><div class="call"><span class="fn">${esc(step.tool)}</span>(${formatArgs(step.args)})</div>
+      <div class="summary">${stepSummary(step)}</div>${stepDetail(step)}</div></li>`).join('');
+    const final = `<li class="step final"><div class="rail"><span class="dot">${run.model_calls}</span><span class="line"></span></div>
+      <div class="body"><div class="call">answer written</div><div class="summary">${run.steps.length ? `${run.steps.length} tool call${run.steps.length > 1 ? 's' : ''} across ${run.model_calls} model calls` : 'no tools called'}</div></div></li>`;
+    return `<ol class="trace">${steps}${final}</ol>`;
+  }
+
+  // ---------- detail ----------
+  function renderDetail() {
+    const item = findItem(state.selected) || allItems[0];
+    const v = view(item);
+    const run = v.run;
+    const isCase = item.category !== 'example';
+    const tags = [
+      `<span class="tag accent">${CATEGORY_LABELS[item.category]}</span>`,
+      `<span class="tag mono">${esc(item.owner_id)}</span>`,
+      isCase ? `<span class="tag">${item.should_decline ? 'should decline' : 'should answer'}</span>` : '',
+    ].join('');
+    const title = isCase ? `Case ${item.id}` : `Demo question ${item.key.slice(1)}`;
+    let html = `<div class="detail-head"><div class="eyebrow">${title}</div><h3>${esc(item.question)}</h3><div class="tags">${tags}</div></div>`;
+    if (v.note) html += `<p class="empty-note">${esc(v.note)}</p>`;
+    if (!run) { $('detail').innerHTML = html; return; }
+
+    const sources = run.sources.length ? run.sources.map((s) => `<span class="tag">${esc(s)}</span>`).join('') : '<span>none</span>';
+    html += `<div><p class="block-title">Answer</p><div class="answer">
+      <p class="says">${esc(run.answer)}</p>
+      <div class="sources">Sources ${sources}</div>
+      <p class="why"><b>Rationale:</b> ${esc(run.rationale)}</p></div>
+      ${isCase ? `<p class="reference"><b>Reference answer, written by hand:</b> ${esc(item.reference_answer)}</p>` : ''}</div>`;
+
+    html += `<div><p class="block-title">What the assistant did</p>${renderTrace(run)}</div>`;
+
+    if (isCase && v.judgment) {
+      const before = item.part2 && item.part2.judgment;
+      html += `<div><p class="block-title">LLM judge (${esc(S.JUDGE_MODEL)})</p><div class="judge">${DIMENSIONS.map((d) => {
+        const j = v.judgment[d];
+        const changed = state.mode === 'fixed' && before && before[d].score !== j.score
+          ? `<span class="delta">${before[d].score} → ${j.score}</span>` : '';
+        return `<div class="verdict"><span class="big s${j.score}">${j.score}</span>
+          <div><b>${d[0].toUpperCase() + d.slice(1)}${changed}</b><p>${esc(j.reason)}</p></div></div>`;
+      }).join('')}</div></div>`;
+    }
+    if (isCase && v.checks) {
+      html += `<div><p class="block-title">Model-free checks</p><div class="checks">${v.checks.map((c) =>
+        `<span class="tag ${c.passed ? 'good' : 'bad'}">${c.passed ? '✓' : '✗'} ${esc(c.label)}</span>`).join('')}</div></div>`;
+    }
+    $('detail').innerHTML = html;
+  }
+
+  function select(key, scroll) {
+    state.selected = key;
+    renderList();
+    renderDetail();
+    try { history.replaceState(null, '', `#case-${key}`); } catch (e) { /* ignore */ }
+    if (scroll) $('runs').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+
+  function renderAll() { renderModeSummary(); renderList(); renderDetail(); }
+
+  // ---------- part 3 ----------
+  function renderFix() {
+    const f = data.part3;
+    const item = findItem(String(f.case_id));
+    $('fix-intro').innerHTML = `“${esc(item.question)}” The answer is on the roadmap: support for multiple staff members is planned but not built. With the owner's own wording, search never returned it, so the assistant only got it right by searching a second time with different words.`;
+    const searches = (run) => run.steps.filter((s) => s.tool === 'search_docs').map((s) => {
+      const hit = s.result.ok && s.result.output.passages.some((p) => p.has_answer);
+      return `<div class="search-row"><span class="q">search_docs("${esc(s.args.query)}")</span>
+        <span>${hit ? '<span class="tag good">returned the answer</span>' : '<span class="tag bad">answer not returned</span>'}</span></div>`;
+    }).join('');
+    const card = (cls, heading, chunking, rank, count, run) => `<div class="fix-card ${cls}">
+      <div class="eyebrow">${esc(chunking)} chunks</div><h3>${heading}</h3>
+      <div class="rank"><span class="num">${rank}</span><span class="of">rank of the answer for the owner's question, out of ${count} chunks</span></div>
+      ${searches(run)}
+      <p class="reference"><b>Answer:</b> ${esc(run.answer)}</p></div>`;
+    $('fix-grid').innerHTML =
+      card('before', 'Before: buried in a seven-item list', S.CHUNKING, f.rank_before, f.chunk_count_before, item.part2.run) +
+      card('after', 'After: one chunk per list item', S.FIXED_CHUNKING, f.rank_after, f.chunk_count_after, item.fixed.run);
+    $('evidence').innerHTML = [
+      [`${f.sim_whole_paragraph.toFixed(3)} → ${f.sim_staff_item.toFixed(3)}`, 'Dilution, not vocabulary', `Similarity of the question to the whole paragraph, then to the staff item alone. Asking in the doc's own words only moved it from ${ordinal(f.rank_before)} to ${ordinal(f.rank_doc_wording)}.`],
+      [`${f.found_at_3_before.toFixed(2)} → ${f.found_at_3_after.toFixed(2)}`, 'Found@3 across all questions', `Over ${f.found_at_3_questions} questions. Only this one changed, and no judge score went down in the full rerun.`],
+      ['HyDE didn’t help', 'It invented a feature', f.hyde_for_question
+        ? `The hypothetical passage written for the owner's question describes a screen that doesn't exist: “${esc(f.hyde_for_question)}”`
+        : 'The hypothetical passage described a settings screen that doesn’t exist.'],
+    ].map(([num, title, note]) => `<div><b>${num}</b><span class="label"><strong>${title}</strong></span><p>${note}</p></div>`).join('');
+    $('caveat').innerHTML = `The rerun's single search also added “multiple staff” to the query on its own, so one search isn't proof by itself. The owner's question moving from ${ordinal(f.rank_before)} to ${ordinal(f.rank_after)} is. <a href="#case-${f.case_id}" id="open-fix-case">Open case ${f.case_id} in the explorer</a>.`;
+    $('open-fix-case').addEventListener('click', (event) => { event.preventDefault(); select(String(f.case_id), true); });
+  }
+
+  // ---------- footer ----------
+  $('footer').innerHTML = `<p>Generated on ${esc(data.built)} by <code>build_results_page.py</code> from <code>cache/runs.json</code>, <code>cache/judge.json</code> and <code>cache/hyde.json</code>, the same saved responses the notebook reads. The case list, model settings and reference answers come from the notebook itself. Part 3's retrieval ranks and similarities need the embedding model, so they're copied from the notebook's Part 3 output.</p>
+    <p>Assistant ${esc(S.MODEL)} at temperature ${esc(S.TEMPERATURE)} · judge ${esc(S.JUDGE_MODEL)} · prompt ${esc(S.PROMPT_VERSION)} · judge prompt ${esc(S.JUDGE_PROMPT_VERSION)} · HyDE ${S.USE_HYDE ? 'on' : 'off'} · rerank ${S.USE_RERANK ? 'on' : 'off'}. Salon data is mock data in the app's Firestore shapes.</p>`;
+
+  // deep link: #case-14 or #case-e1
+  const hash = location.hash.replace('#case-', '');
+  if (hash && findItem(hash)) state.selected = hash;
+  renderAll();
+  renderFix();
+})();
+</script>
+</body>
+</html>
